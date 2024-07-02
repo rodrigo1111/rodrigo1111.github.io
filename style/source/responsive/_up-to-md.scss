@@ -1,0 +1,311 @@
+.font-giant {
+  font-size:48px;
+  line-height:48px;
+}
+
+.font-poster {
+  font-size:35px;
+  line-height:35px;
+}
+
+.font-description {
+  font-size:14px;
+  line-height:21px;
+}
+
+.font-label {
+  font-size:10px;
+  line-height:15px;
+}
+
+.navbar-brand {
+  height:35px;
+}
+.navbar {
+  .main-button {
+    margin-right:0;
+  }
+
+  a:not(.main-button) img {
+    margin-top:15px;
+  }
+}
+
+.hero-title-edition-year {
+  font-size: 20px;
+  line-height: 20px;
+  margin-left: 10px;
+}
+
+
+.main-button {
+  font-size:12px;
+
+  &.share {
+    .idle img {
+      height: 10px;
+      margin-bottom: 3px;
+    }
+    .hover {
+      .social-anchor svg {
+        height:16px;
+      }
+    }
+  }
+}
+.margin-top-30 {
+  margin-top:15px;
+}
+
+.bullet-scroll-wrapper {
+  display:none;
+}
+#three-ghost {
+  display:none;
+}
+
+.featured_on {
+  margin-top:30px;
+}
+.featured-logos-wrapper {
+  img {
+    height:25px;
+    margin-top:0;
+    margin-right:15px;
+  }
+}
+
+.who-logo {
+  height: 35px;
+  object-fit: contain;
+  object-position: left;
+}
+
+.button-wrapper-center {
+  flex-direction: column;
+
+  .main-button {
+    display: flex;
+    width: fit-content;
+    align-self: center;
+
+    &:nth-of-type(1) {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.gradient-wrapper .section-bg-wrapper.section-3-wrapper .justify-content-middle .row .img2in5 {
+  width:30%;
+}
+
+.meet-techman-mobile-div {
+  .justify-content-middle {
+    justify-content: flex-end;
+
+    .techman-container {
+      margin-bottom:60px;
+
+      .split-outline-wrapper {
+        h2 {
+          margin-top: .8rem;
+          margin-bottom: 0; 
+        }
+        
+      }
+      .techman-p-2, .balance-p-2 {
+        margin-top:0;
+      }
+    }
+  }
+}
+.termometer-row {
+  margin-top:15px;
+
+  .termometer-wrapper .termometer .termometer-pill {
+    height: 28px;
+
+    .termometer-status {
+      line-height:28px;
+    }
+  } 
+}
+
+.main-graph-wrapper .main-graph-bottom-section .main-graph-radio-group .main-graph-radio-btn, .main-graph-alt-wrapper .main-graph-bottom-section .main-graph-radio-group .main-graph-radio-btn {
+  font-size:10px;
+}
+#burnout-by-role {
+  .text-companion {
+    order:2;
+  }
+  .graph-companion {
+    order:1;
+  }
+}
+#burnout-by-role, #burnout-by-gender {
+  .text-companion {
+    margin-top:30px;
+    margin-bottom:60px;
+  }
+}
+
+.quote-wrapper {
+  .quotation-mark {
+    top:30px;
+  }
+
+  .quote-horizontal-wrapper {
+    padding-left:0;
+    padding-right:0;
+    
+    .quote-who-wrapper {
+      margin-top:15px;
+    }
+  }
+}
+
+
+
+.ghost-section {
+  &.blue, &.red, &.pink, &.yellow {
+    .mini-graph-wrapper {
+    
+      margin-top:50px;
+      margin-bottom:60px;
+    }
+
+
+    .mini-graph-wrapper .mini-graph-both-container .mini-graph-container {
+      flex-direction:column;
+
+      .mini-graph-graph-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .mini-graph-p-wrapper {
+        margin-left:0;
+        margin-top:30px;
+        margin-bottom:15px;
+      }
+      .mini-graph-share-wrapper {
+        margin-left:0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+
+  .text-companion {
+    order:2;
+    margin-top:30px;
+  }
+  .graph-companion {
+    order:1;
+  }
+  .quote-wrapper {
+    margin-top:90px;
+    margin-bottom:0;
+  }
+
+}
+
+
+.ghost-section.red .mini-graph-wrapper .mini-graph-button,
+.ghost-section.blue .mini-graph-wrapper .mini-graph-button,
+.ghost-section.pink .mini-graph-wrapper .mini-graph-button,
+.ghost-section.yellow .mini-graph-wrapper .mini-graph-button {
+  width:40px;
+  height:40px;
+
+  &.right {
+    right:15px;
+  }
+
+  &.left {
+    left:15px;
+  }
+
+}
+
+
+
+#yerbo-balance {
+  &.content-section.full-height {
+    min-height:100vh;
+  }
+
+  &.justify-content-middle {
+    justify-content: flex-start;
+  }
+
+  .d-pad-companion-wrapper {
+    justify-content: flex-start;
+    margin-top: 30px;
+  }
+}
+
+.yerbo-balance .d-pad-wrapper .d-pad-button {
+  width:40px;
+  height:40px;
+
+  &.top {
+    top:15px;
+  }
+
+  &.bottom {
+    bottom:15px;
+  }
+
+  &.left {
+    left:30px;
+  }
+
+  &.right {
+    right:30px;
+  }
+
+}
+
+
+#footer-section {
+  margin-top: 180px;
+  padding-bottom: 60px;
+
+  .twin-button-section  {
+    &:nth-of-type(1) {
+      margin-bottom:60px;
+    }
+    .justify-content-right {
+      justify-content:flex-start;
+      margin-top:0;
+    }   
+  }
+
+  .footer-row {
+    padding-bottom: 60px;
+
+    .gif-wrapper {
+      display:none;
+    }
+
+    .column {
+      margin-bottom:30px;
+
+      .footer-link-list {
+        margin-top:0;
+
+        .footer-link {
+          line-height:2em;
+        }
+      }
+
+      &.column-logo {
+        margin: bottom 0;
+        margin-top:30px;
+      }
+    }
+  }
+}
