@@ -1,8 +1,2020 @@
-<html>
-    <head>
-        <title>Hello</title>
-    </head>
-    <body>
-        <h1>Hello</h1>
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    <meta name="theme-color" content="#333333">
+    <title>State of Burnout in Tech 2022 | Yerbo</title>
+    <meta name="title" content="State of Burnout in Tech 2022 | Yerbo">
+    <meta name="description" content="Yerbo surveyed over 30,000 tech employees and found staggering numbers around stress and burnout in the tech industry.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yerbo. The State of Burnout in Tech in 2021.">
+    <meta property="og:description" content="Blah blah blah.">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <!--
+    <meta name="twitter:title" content="Yerbo. The State of Burnout in Tech in 2021.">
+    <meta name="twitter:description" content="Blah blah blah.">
+    <meta name="twitter:image" content="">
+    <meta property="twitter:url" content="">
+    -->
+
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
+    <link href="bootstrap-5.0.2-dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style/build/index.css">
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />    
+
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@YerboLabs" />
+    <meta name="twitter:title" content="Yerbo's State of Burnout Interactive Report" />
+    <meta name="twitter:description" content="Yerbo’s interactive report provides an amazing visualization of the staggering numbers around burnout." />
+    <meta name="twitter:image" content="https://ph-files.imgix.net/0f66478c-b8a6-4084-a159-a7ef77c20988.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&fit=max&dpr=2" />
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src='bootstrap-5.0.2-dist/js/bootstrap.js'></script>
+    <script type="text/javascript" src='js/section_navigation.js'></script>
+    <script type="text/javascript" src='js/mini_graph_slider.js'></script>
+    <script type="text/javascript" src='js/main_graph_nav.js'></script>
+    <script src="lottie/lottie.js"></script>
+    <script type="text/javascript" src='js/lottie_player.js'></script>
+    <script type="text/javascript" src='js/yerbo_balance.js'></script>
+    <script type="text/javascript" src='js/copy_to_clipboard.js'></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156049947-2](https://www.googletagmanager.com/gtag/js?id=UA-156049947-2"></script>
+
+  <style>
+
+
+
+
+
+
+
+
+
+    body {
+      padding:0;
+      margin:0;
+      width:100vw;
+      height:100vh;
+      overflow-x:hidden;
+    }
+
+
+
+    .noise-overlay {
+      /*
+      width:100vw;
+      height:100vh;
+      position:fixed;
+      top:0;
+      left:0;
+      background-image:url(noise.gif);
+      opacity:.05;
+      mix-blend-mode: difference;
+      pointer-events: none;
+      */
+      -webkit-animation: noise 3.6s steps(3) infinite both;
+      animation: noise 3.6s steps(3) infinite both;
+      background: url(img/background-noise.webp);
+      height: 200%;
+      left: -50%;
+      pointer-events: none;
+      position: fixed;
+      top: -50%;
+      width: 200%;
+      will-change: auto;
+      z-index: 99999;
+      background-size: 256px;
+    }
+
+    @-webkit-keyframes noise {
+     0% {
+      -webkit-transform:translate3d(1%,-1%,0);
+      transform:translate3d(1%,-1%,0)
+     }
+     10% {
+      -webkit-transform:translate3d(-5%,-2%,0);
+      transform:translate3d(-5%,-2%,0)
+     }
+     20% {
+      -webkit-transform:translate3d(10%,5%,0);
+      transform:translate3d(10%,5%,0)
+     }
+     30% {
+      -webkit-transform:translate3d(5%,-11%,0);
+      transform:translate3d(5%,-11%,0)
+     }
+     40% {
+      -webkit-transform:translate3d(-12%,-5%,0);
+      transform:translate3d(-12%,-5%,0)
+     }
+     50% {
+      -webkit-transform:translate3d(10%,9%,0);
+      transform:translate3d(10%,9%,0)
+     }
+     60% {
+      -webkit-transform:translate3d(15%,0,0);
+      transform:translate3d(15%,0,0)
+     }
+     70% {
+      -webkit-transform:translate3d(-10%,8%,0);
+      transform:translate3d(-10%,8%,0)
+     }
+     80% {
+      -webkit-transform:translate3d(10%,2%,0);
+      transform:translate3d(10%,2%,0)
+     }
+     90% {
+      -webkit-transform:translate3d(1%,5%,0);
+      transform:translate3d(1%,5%,0)
+     }
+     to {
+      -webkit-transform:translate3d(0,8%,0);
+      transform:translate3d(0,8%,0)
+     }
+    }
+    @keyframes noise {
+     0% {
+      -webkit-transform:translate3d(1%,-1%,0);
+      transform:translate3d(1%,-1%,0)
+     }
+     10% {
+      -webkit-transform:translate3d(-5%,-2%,0);
+      transform:translate3d(-5%,-2%,0)
+     }
+     20% {
+      -webkit-transform:translate3d(10%,5%,0);
+      transform:translate3d(10%,5%,0)
+     }
+     30% {
+      -webkit-transform:translate3d(5%,-11%,0);
+      transform:translate3d(5%,-11%,0)
+     }
+     40% {
+      -webkit-transform:translate3d(-12%,-5%,0);
+      transform:translate3d(-12%,-5%,0)
+     }
+     50% {
+      -webkit-transform:translate3d(10%,9%,0);
+      transform:translate3d(10%,9%,0)
+     }
+     60% {
+      -webkit-transform:translate3d(15%,0,0);
+      transform:translate3d(15%,0,0)
+     }
+     70% {
+      -webkit-transform:translate3d(-10%,8%,0);
+      transform:translate3d(-10%,8%,0)
+     }
+     80% {
+      -webkit-transform:translate3d(10%,2%,0);
+      transform:translate3d(10%,2%,0)
+     }
+     90% {
+      -webkit-transform:translate3d(1%,5%,0);
+      transform:translate3d(1%,5%,0)
+     }
+     to {
+      -webkit-transform:translate3d(0,8%,0);
+      transform:translate3d(0,8%,0)
+     }
+    }
+
+
+    .content-wrapper {
+      position:absolute;
+      width:100%;
+    }
+    .content-section {
+      position:relative
+
+    }
+    .content-section.full-height {
+      min-height:100vh;
+    }
+    .content-section.full-height .section-content {
+      //padding-top: 150px;
+      //margin-bottom: -150px;
+    }
+
+    .content-section.meet-techman {
+      min-height:300vh;
+    }
+    .content-section.meet-techman .section-content {
+      min-height:100vh;
+    }
+    .content-section.meet-techman {
+      position:relative;
+    }
+    .content-section.meet-techman  .meet-techman-mobile-div {
+      width:100%;
+    }
+    .content-section.meet-techman  .meet-techman-mobile-div.sticky-bottom {
+      position:absolute;
+      bottom:0;
+    }
+    .content-section.meet-techman  .meet-techman-mobile-div.sticky-top {
+      position:absolute;
+      top:0;
+    }
+    .content-section.meet-techman  .meet-techman-mobile-div.fixed {
+      position:fixed;
+      width:100%;
+      top:0
+    }
+
+    .content-section.small-section .section-content {
+      //padding-top:150px;
+      //padding-bottom:150px;
+    }
+
+    @keyframes hero-title-flicker {
+      0% {opacity: 0.925;}
+      50% {opacity: 1;}
+      100% {opacity: 0.925;}
+    }
+
+    .title-flicker {
+      animation-name: hero-title-flicker;
+      animation-duration: .1s;
+      animation-iteration-count: infinite;
+    }
+
+    .hero-title {
+      font-size: 72pt;
+      line-height:72pt;
+      opacity:1;
+      color: #fdf3e0;
+    }
+
+
+
+
+
+
+    section {
+      opacity:0;
+      transition:opacity .6s ease;
+    }
+
+    section.perma-visible {
+      opacity:1;
+    }
+
+    section.visible {
+      opacity:1;
+    }
+
+    .content-section {
+      //border: 1px solid white;
+    }
+
+    .section-content.fixed {
+      position:relative;
+      width:100%;
+      top:0;
+      left:0;
+    }
+
+    .relative {
+      position:relative;
+    }
+    .absolute {
+      position:absolute;
+    }
+    .relative:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .temp-visible-guide {
+      position:fixed;
+      width:100%;
+      height:2px;
+      top:calc(100vh / 4);
+      left:0;
+      background-color:transparent;
+      z-index:10;
+    }
+    
+
+    #three-ghost {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      mix-blend-mode:lighten;
+      pointer-events: none;
+    }
+
+  </style>
+
+  </head>
+  <body>
+
+    <nav class="navbar fixed-top">
+      <div class="container main-container">
+          <img class="navbar-brand" src="img/nav_logo.svg"/>
+          <div>
+            <a class="main-button report align-right clr-dark" target="_blank" href="https://f.hubspotusercontent30.net/hubfs/7677235/The%20State%20of%20Burnout%20in%20Tech%20-%202022%20Edition.pdf">
+              Download Full Report
+            </a>
+            <a href="https://www.producthunt.com/posts/the-state-of-burnout-in-tech-2022?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-the&#0045;state&#0045;of&#0045;burnout&#0045;in&#0045;tech&#0045;2022" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=338304&theme=light" alt="The State of Burnout in Tech 2022 - The largest scientific-based assessment of burnout ever | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+          </div>    
+      </div>
+    </nav>
+
+    <div class="temp-visible-guide"></div>
+
+
+    <div class="gradient-wrapper">
+      <div class="section-bg-wrapper section-19-wrapper" data-section="19">
+        <div class="gradient-horizontal"></div>
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-18-wrapper" data-section="18">
+        <div class="gradient-horizontal"></div>
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-17-wrapper" data-section="17">
+        <div class="gradient-horizontal"></div>
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-16-wrapper" data-section="16">
+        <div class="gradient-vertical white"></div>
+        <div class="gradient-vertical red"></div>
+      </div>
+      <div class="section-bg-wrapper section-15-wrapper" data-section="15">
+        <div class="gradient-horizontal"></div>
+        <div class="gradient-vertical"></div>
+        <div class="image-wrapper"></div>
+      </div>
+      <div class="section-bg-wrapper section-14-wrapper" data-section="14">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-13-wrapper" data-section="13">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-12-wrapper" data-section="12">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-11-wrapper" data-section="11">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-10-wrapper" data-section="10">
+        <div class="overflow-hidden">
+          <div class="ghost-intro ghost-4">
+            <div class="ghost-intro ghost-3">
+              <div class="ghost-intro ghost-2">
+                <div class="ghost-intro ghost-1">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-9-wrapper" data-section="9">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-8-wrapper" data-section="8">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-7-wrapper" data-section="7">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-6-wrapper" data-section="6">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-5-wrapper" data-section="5">
+        <div class="gradient-vertical"></div>
+      </div>
+      <div class="section-bg-wrapper section-4-wrapper" data-section="4">
+        <div class="gradient-vertical red"></div>
+        <div class="gradient-vertical yellow"></div>
+        <div class="gradient-vertical green"></div>
+      </div>
+      <div class="section-bg-wrapper section-3-wrapper" data-section="3">
+        <div class="gradient-vertical"></div>
+        <div class="justify-content-middle">
+          <div class="row justify-content-center">
+            <img class="img2in5 img2in5-1" src="img/2in5_1.png"/>
+            <img class="img2in5 img2in5-2" src="img/2in5_2.png"/>
+            <img class="img2in5 img2in5-3" src="img/2in5_3.png"/>
+            <img class="img2in5 img2in5-4" src="img/2in5_4.png"/>
+            <img class="img2in5 img2in5-5" src="img/2in5_5.png"/>
+            
+          </div>
+        </div>
+      </div>
+      <!--
+      <div class="section-bg-wrapper section-2-wrapper" data-section="2">
+        <div class="gradient-horizontal"></div>
+        <div class="gradient-vertical"></div>
+      </div>
+      -->
+      <div class="section-bg-wrapper section-1-wrapper" data-section="1">
+        <div class="second-section">
+          <div class="gradient-horizontal"></div>
+          <div class="gradient-vertical"></div>
+        </div>
+        <div class="first-section">
+          <div class="gradient-horizontal"></div>
+          <div class="gradient-vertical"></div>
+        </div>
+        
+        <canvas id="three-ghost"></canvas>
+      </div>
+    </div>
+
+    <!--
+    <div class="split-outline-test"></div>
+    <div>
+      <div>
+        <div >
+          <div class="split-outline-wrapper">
+            <h2 class="font-integral font-giant text-align-center font-uppercase text-align-center clr-white title-flicker split-outline back-text">
+              Meet Techman
+            </h2>
+            <h2 class="font-integral font-giant text-align-center font-uppercase text-align-center clr-white title-flicker split-outline front-text">
+              Meet Techman
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <!--
+    <div id="player" class="lottie" data-json-path="lottie/data.json"></div>
+    -->
+
+
+
+      
+      <section id="home" class="hero content-section full-height justify-content-middle">
+        
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-12">
+                <h6 class="font-ibm-plex-sans font-label font-semibold font-uppercase clr-green">How Burnout syndrome fuels turnover in tech companies</h6>
+                <h2 class="font-integral font-giant clr-white">
+                  <span class="transition /*transition-1*/">The state</span><br>
+                  <span class="transition transition-2">of burnout</span><br>
+                  <span class="transition transition-3">in tech</span><div class="inline-block font-ibm-plex-sans font-regular font-uppercase clr-red hero-title-edition-year">2022<br>edition</div>
+                </h2>
+              </div>
+              <div class="col-md-10">
+                <span class="featured_on font-ibm-plex-sans font-semibold font-uppercase clr-white">Featured on:</span>
+                <div class="featured-logos-wrapper">
+                  <img src="img/msn.svg"/>
+                  <img src="img/product_hunt.svg"/>
+                  <img src="img/mundo_ejecutivo.png"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row scroller-container">
+          <div class="scroller-wrapper">
+            <div class="scroller" data-href="section:eq(1)">
+              <div class="scroll-ball"></div>
+            </div>
+            <div class="scroll-down font-ibm-plex-mono font-regular clr-white font-uppercase text-align-center">scroll down</div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="what-it-is" class="content-section full-height justify-content-middle">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-12">
+                <h2 class="font-integral font-poster clr-white">
+                  <span class="transition /*transition-1*/">But what is</span><br>
+                  <span class="transition transition-2">Burnout?</span><br>
+                </h2>
+              </div>
+              <div class="col-md-7 offset-md-2">
+                <p class="font-ibm-plex-mono font-description font-regular clr-white margin-top-30">Burnout is an occupational phenomenon resulting from <span class="clr-red">“chronic workplace stress that has not been successfully managed”</span></p>
+              </div>
+              <div class="col-md-7 offset-md-2 button-wrapper-center">
+                <img class="who-logo" src="img/who_logo.png"/>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="2in5" class="content-section full-height justify-content-middle">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-12">
+                <h2 class="font-integral font-giant text-align-center clr-white">
+                  2 in 5
+                </h2>
+                <p class="col-md-6 offset-md-3 font-ibm-plex-sans font-description font-regular font-uppercase text-align-center clr-white margin-top-30">of the workers surveyed show a high risk of burnout</p>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 button-wrapper-center">
+                <div class="main-button share align-right">
+                  <div class="idle">Share this <img src="img/share_icon.svg"/></div>
+                  <div class="hover">
+                    <a class="social-anchor link1" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=2 in 5 of the workers surveyed show a high risk of burnout.">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                    </a>
+
+                    <a class="social-anchor link2" target="_blank" href="http://twitter.com/share?text=2 in 5 of the workers surveyed show a high risk of burnout.&url=https://bit.ly/SoBo2022">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                    </a>
+
+                    <a class="social-anchor link3 copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                    </a>
+                  </div>
+                  <div class="copied clr-white">Link Copied</div>
+                </div>
+                <a class="main-button report align-right" target="_blank" href="https://f.hubspotusercontent30.net/hubfs/7677235/The%20State%20of%20Burnout%20in%20Tech%20-%202022%20Edition.pdf">
+                  Download Full Report
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row scroller-container">
+          <div class="scroller-wrapper">
+            <div class="scroller" data-href="section:eq(3)">
+              <div class="scroll-ball"></div>
+            </div>
+            <div class="scroll-down font-ibm-plex-mono font-regular clr-white font-uppercase text-align-center">scroll down</div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="meet-techman" class="content-section meet-techman meet-techman-meet sticky-top">
+        <div class="meet-techman-mobile-div">
+          <canvas class="three-techman-canvas" id="three-techman"></canvas>
+          <div id="three-techman-label"></div>
+          <div class="section-content justify-content-middle">
+            <div class="container techman-container main-container">
+              
+              <div class="row">
+              </div>
+              <div class="row animate-entry">
+                <div class="col-12">
+                  <p class="techman-p-1 col-md-4 font-ibm-plex-mono font-label font-regular clr-white">Techman loves what they do, but they feel pressured to work long hours, which leaves little time for personal life and creates work-life conflicts.</p>
+                  <div class="split-outline-wrapper">
+                    <h2 class="font-integral font-giant text-align-center font-uppercase text-align-center clr-white">
+                      Meet Tech-man
+                    </h2>
+                  </div>
+                  <p class="techman-p-2 col-md-4 offset-md-8 font-ibm-plex-mono font-label font-regular clr-white">Often, techman turns to anti-patterns: short-term fixes to get the job done. When this happens day after day, with no space to recover mentally or physically, stress piles up.</p>
+                </div>
+              </div>
+
+              <div class="row termometer-row animate-entry justify-content-center">
+                <div class="col-md-6 termometer-wrapper green">
+                  <div class="termometer">
+                    <div class="termometer-pill">
+                      <span class="termometer-status low font-ibm-plex-mono font-description font-regular font-uppercase clr-dark">low</span>
+                      <span class="termometer-status moderate font-ibm-plex-mono font-description font-regular font-uppercase clr-dark">moderate</span>
+                      <span class="termometer-status high font-ibm-plex-mono font-description font-regular font-uppercase clr-dark">high</span>
+                    </div>
+                  </div>
+                  <span class="termometer-label font-ibm-plex-sans font-label font-regular font-uppercase">
+                    Stress level
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="participants-surveyed" class="content-section participants-surveyed full-height">
+        <div class="image-wrapper"></div>
+        <div class="radial-gradient"></div>
+        <div class="section-content justify-content-middle fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-12">
+                <h2 class="font-integral font-giant text-align-center clr-white text-shadow-dark">
+                  30,000 Participants surveyed
+                </h2>
+                <p class="col-md-6 offset-md-3 font-ibm-plex-sans font-description font-semibold font-uppercase text-align-center clr-white text-shadow-dark margin-top-30">Let's see what we found</p>
+
+              </div>
+            </div>
+            <!--
+            <div class="row">
+              <div class="col-md-12 button-wrapper-center">
+                <a href="about.html">
+                  <button class="main-button index align-right">Check your Burnout Risk</button>
+                </a>
+              </div>
+            </div>
+            -->
+          </div>
+        </div>
+
+        <div class="row scroller-container">
+          <div class="scroller-wrapper">
+            <div class="scroller" data-href="section:eq(6)">
+              <div class="scroll-ball"></div>
+            </div>
+            <div class="scroll-down font-ibm-plex-mono font-regular clr-white font-uppercase text-align-center">scroll down</div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section class="padding-section"></section>
+
+
+
+      <section id="burnout-by-gender" class="content-section full-height justify-content-middle">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-5 graph-companion">
+                <div class="main-graph-wrapper">
+                  <div class="main-graph-top-section">
+                    <div class="bar-wrapper left" data-1="27.9" data-2="31.2" data-0="24.7">
+                      <div class="percentage">0%</div>
+                      <div class="bar"></div>
+                      <div class="label">LOW</div>
+                    </div>
+                    <div class="bar-wrapper center" data-1="30.0" data-2="30.6" data-0="29.2">
+                      <div class="percentage">0%</div>
+                      <div class="bar"></div>
+                      <div class="label">MODERATE</div>
+                    </div>
+                    <div class="bar-wrapper right" data-1="42.1" data-2="38.2" data-0="46.0">
+                      <div class="percentage">0%</div>
+                      <div class="bar"></div>
+                      <div class="label">HIGH</div>
+                    </div>
+                  </div>
+                  <div class="main-graph-bottom-section">
+
+                    <button class="main-graph-arrow-btn previous pulsable pulsing">
+                      <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <div class="main-graph-radio-group radio-group btn-group" role="group" aria-label="Basic radio toggle button group">
+
+                      <div class="main-graph-nav-pill-wrapper">
+                        <div class="main-graph-nav-pill center"></div>
+                      </div>
+
+                      <input type="radio" class="main-graph-input-radio gender" name="bygender" id="gender-radio-1" autocomplete="off" data-index="0">
+                      <label class="main-graph-radio-btn btn btn-outline-primary" for="gender-radio-1" data-index="0">FEMALE</label>
+
+                      <input type="radio" class="main-graph-input-radio gender" name="bygender" id="gender-radio-2" autocomplete="off" data-index="1" checked>
+                      <label class="main-graph-radio-btn btn btn-outline-primary" for="gender-radio-2" data-index="1">ALL</label>
+
+                      <input type="radio" class="main-graph-input-radio gender" name="bygender" id="gender-radio-3" autocomplete="off" data-index="2">
+                      <label class="main-graph-radio-btn btn btn-outline-primary" for="gender-radio-3" data-index="2">MALE</label>
+                    </div>
+                    <button class="main-graph-arrow-btn next pulsable pulsing">
+                      <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7 justify-content-middle text-companion">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="font-integral font-poster font-uppercase clr-white">
+                        Burnout level by gender
+                      </h2>
+                    </div>
+
+                    <div class="col-md-8 offset-md-2 share-your-thoughts margin-top-30">
+                      <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                        <span class="font-underline font-uppercase clr-green">Share your thoughts</span><br>Burnout seems to affect women more than men because...
+                      </p>
+                      <div class="main-button share align-right">
+                        <span class="idle">Share this <img src="img/share_icon.svg"/></span>
+                        <span class="hover">
+                          <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=“Burnout seems to affect women more than men because…”">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=“Burnout seems to affect women more than men because…”&url=https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                          </a>
+                        </span>
+                        <span class="copied clr-white">Link Copied</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="quote" class="content-section justify-content-middle perma-visible">
+        <div class="main-graphs-quote-wrapper">
+          <div class="container">
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-8 offset-md-2">
+                <div class="quote-wrapper purple">
+                  <div class="quotation-mark opening font-integral font-giant clr-green">“</div>
+                  <div class="quote-horizontal-wrapper">
+                    <h6 class="quote-quote font-ibm-plex-sans font-description font-regular clr-white">
+                      Striking a balance is even more complicated for our female peers. It may be because of their responsibilities as caretakers or even due to impostor syndrome
+                    </h6>
+                    <div class="quote-who-wrapper font-ibm-plex-mono font-label clr-green">
+                      <span class="quote-who-who">-Domenica Obando,</span>
+                      <span class="quote-who-position">CoFounder and CEO at Talently</span>
+                    </div>
+                  </div>
+                  <div class="quotation-mark closing font-integral font-giant clr-green">”</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="burnout-by-role" class="content-section full-height justify-content-middle">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-7 justify-content-middle text-companion">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="font-integral font-poster font-uppercase clr-white">
+                        Burnout level by role
+                      </h2>
+                    </div>
+
+                    <div class="col-md-8 offset-md-2 share-your-thoughts margin-top-30">
+                      <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                        <span class="font-underline font-uppercase clr-green">Share your thoughts</span><br>Managers and ICs face similar levels of burnout because…
+                      </p>
+                      <div class="main-button share align-right">
+                        <span class="idle">Share this <img src="img/share_icon.svg"/></span>
+                        <span class="hover">
+                          <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=“Managers and ICs face similar levels of burnout because…”">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=“Managers and ICs face similar levels of burnout because…”&url=https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                          </a>
+                        </span>
+                        <span class="copied clr-white">Link Copied</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-5 graph-companion">
+                <div class="main-graph-wrapper">
+                  <div class="main-graph-top-section">
+                    <div class="bar-wrapper left" data-1="27.9" data-2="28.1" data-0="27.7">
+                      <div class="percentage">0%</div>
+                      <div class="bar"></div>
+                      <div class="label">LOW</div>
+                    </div>
+                    <div class="bar-wrapper center" data-1="30.0" data-2="29.1" data-0="31.0">
+                      <div class="percentage">0%</div>
+                      <div class="bar"></div>
+                      <div class="label">MODERATE</div>
+                    </div>
+                    <div class="bar-wrapper right" data-1="42.1" data-2="42.8" data-0="41.3">
+                      <div class="percentage">0%</div>
+                      <div class="bar"></div>
+                      <div class="label">HIGH</div>
+                    </div>
+                  </div>
+                  <div class="main-graph-bottom-section">
+
+                    <button class="main-graph-arrow-btn previous pulsable pulsing">
+                      <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <div class="main-graph-radio-group radio-group btn-group" role="group" aria-label="Basic radio toggle button group">
+
+                      <div class="main-graph-nav-pill-wrapper">
+                        <div class="main-graph-nav-pill center"></div>
+                      </div>
+
+                      <input type="radio" class="main-graph-input-radio leadership" name="byleadership" id="leadership-radio-1" autocomplete="off" data-index="0">
+                      <label class="main-graph-radio-btn btn btn-outline-primary" for="leadership-radio-1" data-index="0">MANAGERS</label>
+
+                      <input type="radio" class="main-graph-input-radio leadership" name="byleadership" id="leadership-radio-2" autocomplete="off" data-index="1" checked>
+                      <label class="main-graph-radio-btn btn btn-outline-primary" for="leadership-radio-2" data-index="1">ALL</label>
+
+                      <input type="radio" class="main-graph-input-radio leadership" name="byleadership" id="leadership-radio-3" autocomplete="off" data-index="2">
+                      <label class="main-graph-radio-btn btn btn-outline-primary" for="leadership-radio-3" data-index="2">ICs</label>
+                    </div>
+                    <button class="main-graph-arrow-btn next pulsable pulsing">
+                      <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="the-ghosts-of-burnout" class="content-section full-height justify-content-middle ghost-intro-wrapper">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-12">
+                <h2 class="font-integral font-giant text-align-center clr-white">
+                  The Ghosts of Burnout
+                </h2>
+                <p class="col-md-8 offset-md-2 font-ibm-plex-mono font-label font-regular text-align-center clr-white margin-top-30">Let's meet our enemies: Exhaustion, Self-Inefficacy, Cynicism, and Depersonalization. These are the 4 ghosts of Burnout and they are lurking on every corner, and techman must avoid them to get through unscathed.</p>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row scroller-container">
+          <div class="scroller-wrapper">
+            <div class="scroller" data-href="section:eq(10)">
+              <div class="scroll-ball"></div>
+            </div>
+            <div class="scroll-down font-ibm-plex-mono font-regular clr-white font-uppercase text-align-center">scroll down</div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="exhaustion" class="content-section ghost-section small-section red">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry center-content">
+              <div class="ghost-name-wrapper col-12">
+                <h2 class="ghost-name font-integral font-poster text-align-center clr-white">
+                  Exhaustion
+                </h2>
+              </div>
+              <div class="col-8 col-md-6">
+                <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                  The ghost of Exhaustion is usually the first to go after Tech-Man.<br><br>
+                  Once it catches Tech-Man, they feel emotional, creative, or physical exhaustion and are unable to unwind, and restore energy for the next day.<br><br>
+                  If exhaustion is sustained for long periods of time, Tech-Man can develop depression, cardiovascular problems, and other stress-related illnesses.
+                </p>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry center-content">
+              <div class="col-12 col-lg-8">
+                <div class="mini-graph-wrapper">
+                  <button class="mini-graph-button left pulsable pulsing">
+                    <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="mini-graph-button right pulsable pulsing">
+                    <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  <div class="mini-graph-both-container">
+                    <div class="mini-graph-container left col-10 col-md-10">
+                      <div class="mini-graph-graph-wrapper">
+                        <svg class="mini-graph" version="1.1" x="0px" y="0px"
+                        	 viewBox="0 0 41.8 41.8" xml:space="preserve">
+                        	<circle class="mini-graph-back" cx="20.9" cy="20.9" r="15.91549431"/>
+                        	<circle class="mini-graph-main" cx="20.9" cy="20.9" r="15.91549431"/>
+                        </svg>
+                      </div>
+                      <div class="mini-graph-p-wrapper">
+                        <p class="font-ibm-plex-mono font-label font-regular clr-red">56% of IT professionals with <span class="clr-white">high burnout risk</span> can’t relax once their workday is over.</p>
+                      </div>
+                      <div class="mini-graph-share-wrapper">
+                        <div class="main-button share align-right">
+                          <div class="idle">
+                            <img src="img/share_icon.svg"/>
+                          </div>
+                          <span class="hover">
+                            <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=56% of IT professionals with high burnout risk can’t relax once their workday is over.">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=56 percent of IT professionals with high burnout risk can’t relax once their workday is over.&url=https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                            </a>
+                          </span>
+                          <span class="copied clr-white">Link Copied</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mini-graph-container right col-10 col-md-10">
+                      <div class="mini-graph-graph-wrapper">
+                        <svg class="mini-graph" version="1.1" x="0px" y="0px"
+                        	 viewBox="0 0 41.8 41.8" xml:space="preserve">
+                        	<circle class="mini-graph-back" cx="20.9" cy="20.9" r="15.91549431"/>
+                        	<circle class="mini-graph-main" cx="20.9" cy="20.9" r="15.91549431"/>
+                        </svg>
+                      </div>
+                      <div class="mini-graph-p-wrapper">
+                        <p class="font-ibm-plex-mono font-label font-regular clr-red">62% of the <span class="clr-white">high burnout risk population</span> feel physically and emotionally drained.</p>
+                      </div>
+                      <div class="mini-graph-share-wrapper">
+                        <div class="main-button share align-right">
+                          <div class="idle">
+                            <img src="img/share_icon.svg"/>
+                          </div>
+                          <span class="hover">
+                            <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=62% of the high burnout risk population feel physically and emotionally drained.">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=62 percent of the high burnout risk population feel physically and emotionally drained. &url=https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                            </a>
+                          </span>
+                          <span class="copied clr-white">Link Copied</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-5 offset-md-1 text-companion">
+                <div class="main-graph-alt-wrapper red">
+                  <div class="main-graph-top-section">
+                    <div class="bar-wrapper left">
+                      <div class="percentage">56.0%</div>
+                      <div class="bar"></div>
+                      <div class="label">MALE</div>
+                    </div>
+                    <div class="bar-wrapper right">
+                      <div class="percentage">69.0%</div>
+                      <div class="bar"></div>
+                      <div class="label">FEMALE</div>
+                    </div>
+                  </div>
+                  <div class="main-graph-alt-bottom-section">
+
+                    <div class="main-graph-alt-title-pill font-ibm-plex-mono font-label font-regular text-align-center font-uppercase clr-white">
+                      Gender Distribution
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 justify-content-middle graph-companion">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                        69% of women feel run-down and drained of physical and emotional energy after a workday, compared to 56% of men.
+                      </p>
+                      <div class="main-button share align-right">
+                        <span class="idle">Share this <img src="img/share_icon.svg"/></span>
+                        <span class="hover">
+                          <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=69% of women feel run-down and drained of physical and emotional energy after a workday, compared to 56% of men.">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=69 percent of women feel run-down and drained of physical and emotional energy after a workday, compared to 56 percent of men.&url=https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                          </a>
+                        </span>
+                        <span class="copied clr-white">Link Copied</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-8 offset-md-2">
+                <div class="quote-wrapper red">
+                  <div class="quotation-mark opening font-integral font-giant clr-green">“</div>
+                  <div class="quote-horizontal-wrapper">
+                    <h6 class="quote-quote font-ibm-plex-sans font-description font-regular clr-white">
+                      I went to bed feeling exhausted and woke up still feeling tired.
+                    </h6>
+                    <div class="quote-who-wrapper font-ibm-plex-mono font-label clr-green">
+                      <span class="quote-who-who">-Pujaa Rajan,</span>
+                      <span class="quote-who-position">Deep Learning Engineer at Node</span>
+                    </div>
+                  </div>
+                  <div class="quotation-mark closing font-integral font-giant clr-green">”</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section id="self-inefficacy" class="content-section ghost-section small-section blue">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry center-content">
+              <div class="ghost-name-wrapper col-12">
+                <h2 class="ghost-name font-integral font-poster text-align-center clr-white">
+                  Self-inefficacy
+                </h2>
+              </div>
+              <div class="col-8 col-md-6">
+                <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                  Self-inefficacy is a conman and it makes Tech-Man doubt their abilities to accomplish to-dos.<br><br>
+                  Once the ghost of Self-Inefficacy strikes, Tech-Man is overcome with a sense of ineffectiveness and lack of accomplishment. Eventually, they become unproductive and develop low morale.<br><br>
+                  Over time, they develop an emotional crisis that leads to procrastination and may end in "Imposter Syndrome".
+                </p>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry center-content">
+              <div class="col-12 col-lg-8">
+                <div class="mini-graph-wrapper">
+                  <button class="mini-graph-button left pulsable pulsing">
+                    <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="mini-graph-button right pulsable pulsing">
+                    <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  <div class="mini-graph-both-container">
+                    <div class="mini-graph-container left col-10 col-md-10">
+                      <div class="mini-graph-graph-wrapper">
+                        <svg class="mini-graph" version="1.1" x="0px" y="0px"
+                        	 viewBox="0 0 41.8 41.8" xml:space="preserve">
+                        	<circle class="mini-graph-back" cx="20.9" cy="20.9" r="15.91549431"/>
+                        	<circle class="mini-graph-main" cx="20.9" cy="20.9" r="15.91549431"/>
+                        </svg>
+                      </div>
+                      <div class="mini-graph-p-wrapper">
+                        <p class="font-ibm-plex-mono font-label font-regular clr-ghost-blue">51% <span class="clr-white">of the high burnout risk population</span> feel like they are achieving less than they should.</p>
+                      </div>
+                      <div class="mini-graph-share-wrapper">
+                        <div class="main-button share align-right">
+                          <div class="idle">
+                            <img src="img/share_icon.svg"/>
+                          </div>
+                          <span class="hover">
+                            <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=51% of the high burnout risk population feel like they are achieving less than they should.">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=51 percent of the high burnout risk population feel like they are achieving less than they should.&url=https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                            </a>
+                          </span>
+                          <span class="copied clr-white">Link Copied</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mini-graph-container right col-10 col-md-10">
+                      <div class="mini-graph-graph-wrapper">
+                        <svg class="mini-graph" version="1.1" x="0px" y="0px"
+                        	 viewBox="0 0 41.8 41.8" xml:space="preserve">
+                        	<circle class="mini-graph-back" cx="20.9" cy="20.9" r="15.91549431"/>
+                        	<circle class="mini-graph-main" cx="20.9" cy="20.9" r="15.91549431"/>
+                        </svg>
+                      </div>
+                      <div class="mini-graph-p-wrapper">
+                        <p class="font-ibm-plex-mono font-label font-regular clr-ghost-blue">33% of the tech workforce <span class="clr-white">with high burnout risk</span> feel inefficient at their job.</p>
+                      </div>
+                      <div class="mini-graph-share-wrapper">
+                        <div class="main-button share align-right">
+                          <div class="idle">
+                            <img src="img/share_icon.svg"/>
+                          </div>
+                          <span class="hover">
+                            <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=33% of the tech workforce with high burnout risk feel inefficient at their job.">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=33 percent of the tech workforce with high burnout risk feel inefficient at their job.&url=https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                            </a>
+                          </span>
+                          <span class="copied clr-white">Link Copied</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-5 offset-md-1 justify-content-middle text-companion">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                        You might think that team leaders would have a stronger sense of achievement, making them less vulnerable to this ghost. But there’s not a significant difference between ICs and managers.
+                      </p>
+                      <div class="main-button share align-right">
+                        <span class="idle">Share this <img src="img/share_icon.svg"/></span>
+                        <span class="hover">
+                          <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=You might think that team leaders would have a stronger sense of achievement, making them less vulnerable to self-inefficacy, but there’s not a significant difference between ICs and managers.">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=You might think that team leaders would have a stronger sense of achievement, making them less vulnerable to self-inefficacy, but there’s not a significant difference between ICs and managers.&url=https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                          </a>
+                        </span>
+                        <span class="copied clr-white">Link Copied</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 graph-companion">
+                <div class="main-graph-alt-wrapper blue">
+                  <div class="main-graph-top-section">
+                    <div class="bar-wrapper left">
+                      <div class="percentage">30.5%</div>
+                      <div class="bar"></div>
+                      <div class="label">MANAGERS</div>
+                    </div>
+                    <div class="bar-wrapper right">
+                      <div class="percentage">34.5%</div>
+                      <div class="bar"></div>
+                      <div class="label">ICs</div>
+                    </div>
+                  </div>
+                  <div class="main-graph-alt-bottom-section">
+
+                    <div class="main-graph-alt-title-pill font-ibm-plex-mono font-label font-regular text-align-center font-uppercase clr-white">
+                      Role Distribution
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-8 offset-md-2">
+                <div class="quote-wrapper blue">
+                  <div class="quotation-mark opening font-integral font-giant clr-green">“</div>
+                  <div class="quote-horizontal-wrapper">
+                    <h6 class="quote-quote font-ibm-plex-sans font-description font-regular clr-white">
+                      I’ve found that it is the little negative voices in my head that start getting louder until you’re consumed by self-doubt.
+                    </h6>
+                    <div class="quote-who-wrapper font-ibm-plex-mono font-label clr-green">
+                      <span class="quote-who-who">-Taylor McCaslin,</span>
+                      <span class="quote-who-position">Sr. PM at GitLab</span>
+                    </div>
+                  </div>
+                  <div class="quotation-mark closing font-integral font-giant clr-green">”</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section id="cynicism" class="content-section ghost-section small-section pink">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry center-content">
+              <div class="ghost-name-wrapper col-12">
+                <h2 class="ghost-name font-integral font-poster text-align-center clr-white">
+                  Cynicism
+                </h2>
+              </div>
+              <div class="col-8 col-md-6">
+                <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                  Cynicism is the trickiest ghost Tech-Man has to face.<br><br>
+                  When it strikes, Tech-Man may act coldly towards people and no longer find satisfaction in finishing tasks or accomplishing goals. So they move slowly, carelessly, and are unproductive.<br><br>
+                  Once it strikes, it's the likeliest ghost to drive Tech-Man out of the job. In fact, Cynicism is the best predictor of turnover.
+                </p>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry center-content">
+              <div class="col-12 col-lg-8">
+                <div class="mini-graph-wrapper">
+                  <button class="mini-graph-button left pulsable pulsing">
+                    <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="mini-graph-button right pulsable pulsing">
+                    <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  <div class="mini-graph-both-container">
+                    <div class="mini-graph-container left col-10 col-md-10">
+                      <div class="mini-graph-graph-wrapper">
+                        <svg class="mini-graph" version="1.1" x="0px" y="0px"
+                        	 viewBox="0 0 41.8 41.8" xml:space="preserve">
+                        	<circle class="mini-graph-back" cx="20.9" cy="20.9" r="15.91549431"/>
+                        	<circle class="mini-graph-main" cx="20.9" cy="20.9" r="15.91549431"/>
+                        </svg>
+                      </div>
+                      <div class="mini-graph-p-wrapper">
+                        <p class="font-ibm-plex-mono font-label font-regular clr-ghost-pink">43% <span class="clr-white">of the high burnout risk population</span> feel less and less engaged in their work.</p>
+                      </div>
+                      <div class="mini-graph-share-wrapper">
+                        <div class="main-button share align-right">
+                          <div class="idle">
+                            <img src="img/share_icon.svg"/>
+                          </div>
+                          <span class="hover">
+                            <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=43% of the high burnout risk population feel less and less engaged in their work.">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=43 percent of the high burnout risk population feel less and less engaged in their work.&url=https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                            </a>
+                          </span>
+                          <span class="copied clr-white">Link Copied</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mini-graph-container right col-10 col-md-10">
+                      <div class="mini-graph-graph-wrapper">
+                        <svg class="mini-graph" version="1.1" x="0px" y="0px"
+                        	 viewBox="0 0 41.8 41.8" xml:space="preserve">
+                        	<circle class="mini-graph-back" cx="20.9" cy="20.9" r="15.91549431"/>
+                        	<circle class="mini-graph-main" cx="20.9" cy="20.9" r="15.91549431"/>
+                        </svg>
+                      </div>
+                      <div class="mini-graph-p-wrapper">
+                        <p class="font-ibm-plex-mono font-label font-regular clr-ghost-pink">27% <span class="clr-white">in the high burnout risk population</span> don't see the value or purpose in what they do.</p>
+                      </div>
+                      <div class="mini-graph-share-wrapper">
+                        <div class="main-button share align-right">
+                          <div class="idle">
+                            <img src="img/share_icon.svg"/>
+                          </div>
+                          <span class="hover">
+                            <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=27% in the high burnout risk population don't see the value or purpose in what they do.">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=27 percent in the high burnout risk population don't see the value or purpose in what they do.&url=https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                            </a>
+                          </span>
+                          <span class="copied clr-white">Link Copied</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-5 offset-md-1 graph-companion">
+                <div class="main-graph-alt-wrapper pink">
+                  <div class="main-graph-top-section">
+                    <div class="bar-wrapper left">
+                      <div class="percentage">23.0%</div>
+                      <div class="bar"></div>
+                      <div class="label">MANAGERS</div>
+                    </div>
+                    <div class="bar-wrapper right">
+                      <div class="percentage">28.0%</div>
+                      <div class="bar"></div>
+                      <div class="label">ICs</div>
+                    </div>
+                  </div>
+                  <div class="main-graph-alt-bottom-section">
+
+                    <div class="main-graph-alt-title-pill font-ibm-plex-mono font-label font-regular text-align-center font-uppercase clr-white">
+                      Role Distribution
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 justify-content-middle text-companion">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                        Individual Contributors report higher cynicism (28%) than managers (23%). Similarly, nearly 30% of ICs don’t know their purpose or value, compared to 24,3% of leaders who report the same.
+                      </p>
+                      <div class="main-button share align-right">
+                        <span class="idle">Share this <img src="img/share_icon.svg"/></span>
+                        <span class="hover">
+                          <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=Individual Contributors report higher cynicism (28%) than managers (23%). Similarly, nearly 30% of ICs don’t know their purpose or value, compared to 24,3% of leaders.">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=Individual Contributors report higher cynicism (28 percent) than managers (23 percent). Similarly, nearly 30 percent of ICs don’t know their purpose or value, compared to 24,3 percent of leaders.&url=https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                          </a>
+                        </span>
+                        <span class="copied clr-white">Link Copied</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-8 offset-md-2">
+                <div class="quote-wrapper pink">
+                  <div class="quotation-mark opening font-integral font-giant clr-green">“</div>
+                  <div class="quote-horizontal-wrapper">
+                    <h6 class="quote-quote font-ibm-plex-sans font-description font-regular clr-white">
+                      I remember thinking, I genuenly can’t imagine what any company could say to me to get me excited about joining right now.
+                    </h6>
+                    <div class="quote-who-wrapper font-ibm-plex-mono font-label clr-green">
+                      <span class="quote-who-who">-Jean Hsu,</span>
+                      <span class="quote-who-position">VP of Engineering at Range</span>
+                    </div>
+                  </div>
+                  <div class="quotation-mark closing font-integral font-giant clr-green">”</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section id="depersonalization" class="content-section ghost-section small-section yellow">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry center-content">
+              <div class="ghost-name-wrapper col-12">
+                <h2 class="ghost-name font-integral font-poster text-align-center clr-white">
+                  Depersonalization
+                </h2>
+              </div>
+              <div class="col-8 col-md-6">
+                <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                  This ghost's signature attack is exploiting an emotional defense mechanism where Tech-Man shuts down emotions in order to cope and continue working.<br><br>
+                  After Tech-Man is struck by Depersonalization, they become cold and distant towards colleagues, clients and superiors.<br><br>
+                  Lacking a sense of community, they may even compromise the working environment with a bad and callous attitude.
+                </p>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry center-content">
+              <div class="col-12 col-lg-8">
+                <div class="mini-graph-wrapper">
+                  <button class="mini-graph-button left pulsable pulsing">
+                    <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="mini-graph-button right pulsable pulsing">
+                    <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  <div class="mini-graph-both-container">
+                    <div class="mini-graph-container left col-10 col-md-10">
+                      <div class="mini-graph-graph-wrapper">
+                        <svg class="mini-graph" version="1.1" x="0px" y="0px"
+                        	 viewBox="0 0 41.8 41.8" xml:space="preserve">
+                        	<circle class="mini-graph-back" cx="20.9" cy="20.9" r="15.91549431"/>
+                        	<circle class="mini-graph-main" cx="20.9" cy="20.9" r="15.91549431"/>
+                        </svg>
+                      </div>
+                      <div class="mini-graph-p-wrapper">
+                        <p class="font-ibm-plex-mono font-label font-regular clr-ghost-yellow">22% <span class="clr-white">of the high burnout risk population</span> feel that they are harder and less sympathic with people that they work with than they deserve.</p>
+                      </div>
+                      <div class="mini-graph-share-wrapper">
+                        <div class="main-button share align-right">
+                          <div class="idle">
+                            <img src="img/share_icon.svg"/>
+                          </div>
+                          <span class="hover">
+                            <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=22% of those with high burnout risk feel that they are harder with people that they work with than they deserve.">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=22 percent of those with high burnout risk feel that they are harder with people that they work with than they deserve.&url=https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                            </a>
+                          </span>
+                          <span class="copied clr-white">Link Copied</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="mini-graph-container right col-10 col-md-10">
+                      <div class="mini-graph-graph-wrapper">
+                        <svg class="mini-graph" version="1.1" x="0px" y="0px"
+                        	 viewBox="0 0 41.8 41.8" xml:space="preserve">
+                        	<circle class="mini-graph-back" cx="20.9" cy="20.9" r="15.91549431"/>
+                        	<circle class="mini-graph-main" cx="20.9" cy="20.9" r="15.91549431"/>
+                        </svg>
+                      </div>
+                      <div class="mini-graph-p-wrapper">
+                        <p class="font-ibm-plex-mono font-label font-regular clr-ghost-yellow">26% of the <span class="clr-white">high burnout risk population</span> are worried that their job in IT is making them harsher emotionally.</p>
+                      </div>
+                      <div class="mini-graph-share-wrapper">
+                        <div class="main-button share align-right">
+                          <div class="idle">
+                            <img src="img/share_icon.svg"/>
+                          </div>
+                          <span class="hover">
+                            <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=26% of those with high burnout risk are worried that their job in Tech is making them harsher emotionally.">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=26 percent of those with high burnout risk are worried that their job in Tech is making them harsher emotionally.&url=https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+        
+                            <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                            </a>
+                          </span>
+                          <span class="copied clr-white">Link Copied</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-5 offset-md-1 justify-content-middle text-companion">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p class="font-ibm-plex-mono font-label font-regular clr-white">
+                        29% of women worry about their job making them emotionally harsher compared to 23% of men. This may lead to a deterioration of relationships in the workplace.
+                      </p>
+                      <div class="main-button share align-right">
+                        <span class="idle">Share this <img src="img/share_icon.svg"/></span>
+                        <span class="hover">
+                          <a class="social-anchor" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/SoBo2022&quote=29% of women worry about their job making them emotionally harsher compared to 23% of men.">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor" target="_blank" href="http://twitter.com/share?text=29 percent of women worry about their job making them emotionally harsher compared to 23 percent of men.&url=https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                          </a>
+      
+                          <a class="social-anchor copy-to-clipboard" data-href="https://bit.ly/SoBo2022">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+                          </a>
+                        </span>
+                        <span class="copied clr-white">Link Copied</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 graph-companion">
+                <div class="main-graph-alt-wrapper yellow">
+                  <div class="main-graph-top-section">
+                    <div class="bar-wrapper left">
+                      <div class="percentage">29.0%</div>
+                      <div class="bar"></div>
+                      <div class="label">FEMALE</div>
+                    </div>
+                    <div class="bar-wrapper right">
+                      <div class="percentage">23.0%</div>
+                      <div class="bar"></div>
+                      <div class="label">MALE</div>
+                    </div>
+                  </div>
+                  <div class="main-graph-alt-bottom-section">
+
+                    <div class="main-graph-alt-title-pill font-ibm-plex-mono font-label font-regular text-align-center font-uppercase clr-white">
+                      Gender Distribution
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-md-8 offset-md-2">
+                <div class="quote-wrapper yellow">
+                  <div class="quotation-mark opening font-integral font-giant clr-green">“</div>
+                  <div class="quote-horizontal-wrapper">
+                    <h6 class="quote-quote font-ibm-plex-sans font-description font-regular clr-white">
+                      I understand that the job, by itself, cannot be the sole motivation. But when people move to the extreme opposite, inertia takes over.
+                    </h6>
+                    <div class="quote-who-wrapper font-ibm-plex-mono font-label clr-green">
+                      <span class="quote-who-who">-Diego Eis,</span>
+                      <span class="quote-who-position">Director of Digital Products at Sympla</span>
+                    </div>
+                  </div>
+                  <div class="quotation-mark closing font-integral font-giant clr-green">”</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+      <section id="job-demands-and-resources" class="content-section participants-surveyed full-height">
+        <div class="section-content justify-content-middle fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="col-12">
+                <h2 class="font-integral font-poster text-align-center clr-white">
+                  Job Demands vs Job Resources
+                </h2>
+                <p class="col-md-8 offset-md-2 font-ibm-plex-sans font-label font-regular font-uppercase text-align-center clr-white margin-top-30">Work-related stress is produced when there is an imbalance between the job's demands and its resources:</p>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 offset-md-2 font-ibm-plex-mono font-label font-regular clr-white"><span class="font-uppercase font-semibold clr-red">Job Demands</span> are the factors that contribute to diminishing motivation, performance, and increased stress.
+              </div>
+              <div class="col-md-4 font-ibm-plex-mono font-label font-regular clr-white"><span class="font-uppercase font-semibold clr-green">Job Resources</span> are the factors that increase motivation and performance, and reduce perceived stress.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row scroller-container">
+          <div class="scroller-wrapper">
+            <div class="scroller" data-href="section:eq(15)">
+              <div class="scroll-ball"></div>
+            </div>
+            <div class="scroll-down font-ibm-plex-mono font-regular clr-white font-uppercase text-align-center">scroll down</div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+      <section id="finding-balance" class="content-section meet-techman meet-techman-balance sticky-top">
+        <div class="meet-techman-mobile-div">
+          <canvas class="three-techman-canvas semi-burnt" id="three-techman-balance"></canvas>
+          <div id="three-techman-balance-label" class="semi-burnt"></div>
+          <div class="section-content justify-content-middle">
+            <div class="container techman-container main-container">
+
+              <div class="row animate-entry">
+                <div class="col-12">
+                  <p class="balance-p-1 col-md-4 font-ibm-plex-mono font-label font-regular clr-white">When demands exceed resources, the techman experiences tension and this can lead to distress. If this persists, the techman exhausts their resources and falls into a state of burnout.
+                  </p>
+                  <div class="split-outline-wrapper">
+                    <h2 class="font-integral font-giant text-align-center font-uppercase text-align-center clr-white">
+                      Finding Balance
+                    </h2>
+                  </div>
+                  <p class="balance-p-2 col-md-4 offset-md-8 font-ibm-plex-mono font-label font-regular clr-white">When there is an equilibrium between high job demands and resources, the techman feels challenged and empowered and this leads to the feeling of flow. This, in time, leads to high work-engagement and productivity.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row termometer-row animate-entry justify-content-center">
+                <div class="col-md-6 termometer-wrapper red">
+                  <div class="termometer">
+                    <div class="termometer-pill">
+                      <span class="termometer-status high font-ibm-plex-mono font-description font-regular font-uppercase clr-dark">high</span>
+                    </div>
+                  </div>
+                  <span class="termometer-label stress font-ibm-plex-sans font-label font-regular font-uppercase">
+                    Stress level
+                  </span>
+                  <span class="termometer-label flow font-ibm-plex-sans font-label font-regular font-uppercase">
+                    In Flow
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+      <section id="yerbo-balance" class="yerbo-balance content-section full-height justify-content-middle">
+        <div class="section-content fixed">
+          <div class="container main-container">
+
+            <div class="row main-title-wrapper animate-entry">
+              <div class="d-pad-wrapper col-md-6">
+
+                <button class="d-pad-reset-button">
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39.5 60C28.7304 60 20 51.2696 20 40.5C20 29.7304 28.7304 21 39.5 21C50.2696 21 59 29.7304 59 40.5C59 46.2752 56.4894 51.4641 52.5 55.0347" stroke="#F9EDCE" stroke-width="2"/>
+                    <path d="M52 44V55H63" stroke="#F9EDCE" stroke-width="2"/>
+                  </svg>
+                </button>
+
+                <button class="d-pad-button top pulsable pulsing">
+                  <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button class="d-pad-button right pulsable pulsing">
+                  <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button class="d-pad-button bottom pulsable pulsing">
+                  <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button class="d-pad-button left pulsable pulsing">
+                  <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M0.000976562 9.1543H17.001L9.00098 1.1543" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M0.000976562 9.1543H17.001L9.00098 17.1543" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <img class="d-pad-bg" src="img/d_pad.png"/>
+                <div id="player" class="lottie" data-json-path="lottie/d-pad.json"></div>
+              </div>
+              <div class="col-md-5 offset-md-1 justify-content-middle-2">
+                <div class="d-pad-companion-wrapper justify-content-middle">
+                  <div class="d-pad-companion d-pad-companion-idle idle active">
+                    <h6 class="font-ibm-plex-sans font-description font-semibold font-uppercase clr-green">The Yerbo Balance</h6>
+                    <p class="font-ibm-plex-mono font-label font-regular clr-white">But don't assume that given a set of JD-R, every techman will react the same way. Personality traits, their history and career path will influence how they perceive their situation:<br><br>
+                      Someone with less social skills may perceive a meeting as a stressor; while someone with a lot of ability may feel they don't perform at the level their role requires, falling into feelings of self-inefficacy.
+                    </p>
+                  </div>
+
+                  <div class="d-pad-companion d-pad-companion-feeling engagement">
+                    <div class="demands font-ibm-plex-mono font-label font-regular font-uppercase clr-red">High Demands
+                      <span>
+                        <img class="munchie-item" src="lottie/images/img_4.png"/>
+                        <img class="munchie-item" src="lottie/images/img_4.png"/>
+                      </span>
+                    </div>
+                    <div class="resources font-ibm-plex-mono font-label font-regular font-uppercase clr-green">High Resources
+                      <span>
+                        <img class="munchie-item" src="lottie/images/img_7.png"/>
+                        <img class="munchie-item" src="lottie/images/img_6.png"/>
+                      </span>
+                    </div>
+                    <img class="d-pad-gif" src="img/engaged.gif"/>
+                    <h6 class="feeling font-ibm-plex-sans font-description font-semibold font-uppercase font-underline clr-white">Highly engaged</h6>
+                    <p class="feeling-description font-ibm-plex-mono font-label font-regular clr-white">Tech-Man is very committed when it comes to their job and also really likes what they do. They always tackle any difficulties that come up because they value the sense of challenge it brings them. Often, Tech-Man will find themselves in productive flow states :)</p>
+                  </div>
+
+                  <div class="d-pad-companion d-pad-companion-feeling burnout">
+                    <div class="demands font-ibm-plex-mono font-label font-regular font-uppercase clr-red">High Demands
+                      <span>
+                        <img class="munchie-item" src="lottie/images/img_4.png"/>
+                        <img class="munchie-item" src="lottie/images/img_4.png"/>
+                        <img class="munchie-item" src="lottie/images/img_4.png"/>
+                      </span>
+                    </div>
+                    <div class="resources font-ibm-plex-mono font-label font-regular font-uppercase clr-green">Low Resources</div>
+                    <img class="d-pad-gif" src="img/burnout.gif"/>
+                    <h6 class="feeling font-ibm-plex-sans font-description font-semibold font-uppercase font-underline clr-white">Burned out</h6>
+                    <p class="feeling-description font-ibm-plex-mono font-label font-regular clr-white">Tech-Man feels exhausted, without any strength or will to work. They don’t feel like they are contributing, and they’re unsatisfied with their tasks. Usually, they’re also feeling low levels of perceived self-efficacy and may feel stress from relationships with managers, peers, customers, etc.</p>
+                  </div>
+
+                  <div class="d-pad-companion d-pad-companion-feeling 9to5">
+                    <div class="demands font-ibm-plex-mono font-label font-regular font-uppercase clr-red">Low Demands
+                      <span>
+                        <img class="munchie-item" src="lottie/images/img_4.png"/>
+                      </span>
+                    </div>
+                    <div class="resources font-ibm-plex-mono font-label font-regular font-uppercase clr-green">Low Resources
+                      <span>
+                        <img class="munchie-item" src="lottie/images/img_5.png"/>
+                      </span>
+                    </div>
+                    <img class="d-pad-gif" src="img/9to5.gif"/>
+                    <h6 class="feeling font-ibm-plex-sans font-description font-semibold font-uppercase font-underline clr-white">9 To 5</h6>
+                    <p class="feeling-description font-ibm-plex-mono font-label font-regular clr-white">The Tech-Man's job feels mundate, but they do it to make a living. They don't necessarily enjoy the work, but don't resent it either. They just do what they have to without looking for any kind of extra engagement.</p>
+                  </div>
+
+                  <div class="d-pad-companion d-pad-companion-feeling boredom">
+                    <div class="demands font-ibm-plex-mono font-label font-regular font-uppercase clr-red">Low Demands</div>
+                    <div class="resources font-ibm-plex-mono font-label font-regular font-uppercase clr-green">High Resources
+                      <span>
+                        <img class="munchie-item" src="lottie/images/img_3.png"/>
+                        <img class="munchie-item" src="lottie/images/img_2.png"/>
+                        <img class="munchie-item" src="lottie/images/img_1.png"/>
+                      </span>
+                    </div>
+                    <img class="d-pad-gif" src="img/bored.gif"/>
+                    <h6 class="feeling font-ibm-plex-sans font-description font-semibold font-uppercase font-underline clr-white">Bored out</h6>
+                    <p class="feeling-description font-ibm-plex-mono font-label font-regular clr-white">Tech-Man feels low motivation, and doesn't want to do their job as it feels tedious and a waste of time. There's no real interest in completing any task as they're not challenging, thus it doesn't seem like the best use of the Tech-Man's time and skills.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+      <section id="footer-section" class="content-section perma-visible small-section">
+        <div class="section-content fixed">
+          <div class="container main-container">
+            <div class="row">
+              <div class="twin-button-section col-md-4 offset-md-1">
+                <div class="wrapper">
+                  <h6 class="font-ibm-plex-sans font-description font-semibold font-uppercase clr-green">Check your burnout Risk</h6>
+                  <p class="font-ibm-plex-mono font-label font-regular clr-white">Calculate your personal burnout risk with a free, science-based 5-min assessment.</p>
+                </div>
+                <div class="justify-content-right">
+                  <a target="_blank" href="https://burnoutindex.yerbo.co/?utm_source=website&utm_medium=cta&utm_campaign=SoBo">
+                    <button class="main-button index align-right">Check Burnout risk</button>
+                  </a>
+                </div>
+              </div>
+
+              <div class="twin-button-section col-md-4 offset-md-2">
+                <div class="wrapper">
+                  <h6 class="font-ibm-plex-sans font-description font-semibold font-uppercase clr-green">Superpower your team</h6>
+                  <p class="font-ibm-plex-mono font-label font-regular clr-white">Become the manager that drives productivity coupled with wellbeing with Yerbo’s wellbeing management toolkit. Free for individual use or 14-day free trial.</p>
+                </div>
+                <div class="justify-content-right">
+                  <a target="_blank" href="https://app.yerbo.co/get-started/?utm_source=website&utm_medium=cta&utm_campaign=SoBo">
+                    <button class="main-button yerbo align-right">Manage my team’s wellbeing</button>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row footer-row">
+              <div class="footer-wrapper"></div>
+              <div class="col-md-3 offset-md-0 col-8 offset-2 column">
+                <h6 class="font-ibm-plex-mono font-label font-semibold font-uppercase clr-green">The State of Burnout in tech</h6>
+                <div class="footer-link-list-wrapper justify-content-bottom font-ibm-plex-mono font-label font-regular">
+                  <ul class="footer-link-list">
+                    <li class="footer-link"><a target="_blank" href="https://yerbolabs.notion.site/The-State-of-Burnout-in-Tech-2022-Methodology-6bf782aef926412da1de353b85f39863" class="clr-white font-underline">The Methology</a></li>
+                    <li class="footer-link"><a target="_blank" href="https://f.hubspotusercontent30.net/hubfs/7677235/The%20State%20of%20Burnout%20in%20Tech%20-%202022%20Edition.pdf" class="clr-white font-underline">Download full Report</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 offset-md-0 col-8 offset-2 column">
+                <h6 class="font-ibm-plex-mono font-label font-semibold font-uppercase clr-green">Explore</h6>
+                <div class="footer-link-list-wrapper justify-content-bottom font-ibm-plex-mono font-label font-regular clr-white">
+                  <ul class="footer-link-list">
+                    <li class="footer-link"><a target="_blank" href="https://yerbo.co/?utm_source=website&utm_medium=footer&utm_campaign=SoBo" class="clr-white font-underline">Yerbo’s Website</a></li>
+                    <li class="footer-link"><a target="_blank" href="https://burnoutindex.yerbo.co/?utm_source=website&utm_medium=footer&utm_campaign=SoBo" class="clr-white font-underline">Burnout Index</a></li>
+                    <li class="footer-link"><a target="_blank" href="https://worklifeindex.yerbo.co/?utm_source=website&utm_medium=footer&utm_campaign=SoBo" class="clr-white font-underline">Work-Life Index</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 offset-md-0 col-8 offset-2 column">
+                <h6 class="font-ibm-plex-mono font-label font-semibold font-uppercase clr-green">Contact</h6>
+                <div class="footer-link-list-wrapper justify-content-bottom font-ibm-plex-mono font-label font-regular clr-green">
+                  <ul class="footer-link-list">
+                    <li class="footer-link"><a href="mailto:research@yerbo.co" class="clr-white font-underline">For Researchers</a></li>
+                    <li class="footer-link"><a href="mailto:sales@yerbo.co" class="clr-white font-underline">Sales</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 offset-md-0 col-8 offset-2 column column-logo">
+                <div class="font-ibm-plex-mono font-label font-regular clr-white">
+                  Made with <span><svg class="heart-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/>
+                    </svg></span> by
+                </div>
+                <a target="_blank" href="https://yerbo.co/?utm_source=website&utm_medium=footer&utm_campaign=SoBo">
+                  <img class="yerbo-logo" src="img/yerbo-logo.svg"/>
+                </a>
+              </div>
+              <div class="gif-wrapper">
+                <img class="gif" src="img/footer_gif.gif"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    </div>
+
+    <div class="bullet-scroll-wrapper">
+      <ul class="bullet-scroll-list">
+        <li class="bullet-scroll active" data-index="1"></li>
+        <li class="bullet-scroll" data-index="2"></li>
+        <li class="bullet-scroll" data-index="3"></li>
+        <li class="bullet-scroll" data-index="4"></li>
+        <li class="bullet-scroll" data-index="5"></li>
+        <li class="bullet-scroll" data-index="7"></li>
+        <li class="bullet-scroll" data-index="9"></li>
+        <li class="bullet-scroll" data-index="10"></li>
+        <li class="bullet-scroll" data-index="11"></li>
+        <li class="bullet-scroll" data-index="12"></li>
+        <li class="bullet-scroll" data-index="13"></li>
+        <li class="bullet-scroll" data-index="14"></li>
+        <li class="bullet-scroll" data-index="15"></li>
+        <li class="bullet-scroll" data-index="16"></li>
+        <li class="bullet-scroll" data-index="17"></li>
+      </ul>
+    </div>
+
+
+    <div class="noise-overlay"></div>
+    <script type="module" src="techman-balance.js"></script>
+    <script type="module" src="techman.js"></script>
+    <script type="module" src="ghost.js"></script>
+  </body>
 </html>
