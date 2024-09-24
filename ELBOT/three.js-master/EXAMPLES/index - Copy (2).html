@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first three.js app</title>
+    <style>
+
+        @font-face {
+          font-family: "Integral CF";
+          src: local("../../yerbo/fonts/Integral CF Medium"), local("Integral-CF-Medium"), url("../../yerbo/fonts/IntegralCF-Medium.woff2") format("woff2"), url("../../yerbo/fonts/IntegralCF-Medium.woff") format("woff"), url("../../yerbo/fonts/IntegralCF-Medium.ttf") format("truetype");
+          font-weight: 500;
+          font-style: normal;
+        }
+
+        body {
+          margin: 0;
+          padding:0;
+          background-color:black;
+        }
+
+        .content {
+          font-family: "Integral CF";
+          font-size:72pt;
+          width:100%;
+          height:100vh;
+          text-align:center;
+          position:absolute;
+          color:#F9EDCE;
+          padding-top:40%;
+        }
+
+        .content-front {
+          -webkit-text-stroke: 1px #F9EDCE;
+          color:transparent;
+          z-index:3;
+        }
+
+        .content-back {
+          z-index:1;
+        }
+
+        #c {
+          z-index:2;
+          position:fixed;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        body {
+          padding: 0;
+          margin: 0;
+        }
+
+        #container {
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          margin: 0;
+          position: relative;
+        }
+
+        .text-label {
+          color: #fff;
+          font-family: "Fira Mono", Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+          margin: -5px 0 0 15px;
+          pointer-events:none;
+        }
+
+        #notes {
+          color: #fff;
+          font-family: "Fira Mono", Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div>
+  <div class="content content-front">MEET TECHMAN</div>
+  <div class="content content-back">MEET TECHMAN</div>
+</div>
+<canvas id="c"></canvas>
+
+<!-- Three.js library -->
+<script src="https://threejs.org/build/three.min.js"></script>
+<!-- GLTFLoader.js source -->
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+<script src="jsm/loaders/GLTFLoader.js"></script>
+<script>
+
+
+const canvas = document.querySelector('#c');
+//const renderer = new THREE.WebGLRenderer({canvas, alpha: true});
+const renderer = new THREE.WebGLRenderer({
+   antialias: true,
+   canvas, alpha: true,
+});
+
+const fov = 75;
+const aspect = 2;  // the canvas default
+const near = 0.1;
+const far = 5;
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+const helper = new THREE.CameraHelper( camera );
+let Mesh, Mesh2;
+
+window.addEventListener('resize', function() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}, false);
+
+const techmanGroup = new THREE.Group();
+
+function main() {
+
+
+camera.position.z = 5;
+camera.position.y = -1;
+//camera.rotation.x = - 3 * (Math.PI / 5);
+camera.rotation.z = Math.PI;
+camera.rotation.x = (Math.PI / 20);
+
+
+
+
+
+const scene = new THREE.Scene();
+scene.add( helper );
+{
+const color = 0xFFFFFF;
+const intensity = 1;
+light = new THREE.HemisphereLight( 0xffffbb, /*0x0D201A*/ 0x000000, 1 ); // soft white light
+scene.add(light);
+}
+
+const boxWidth = 1;
+const boxHeight = 1;
+const boxDepth = 1;
+const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+const material = new THREE.MeshPhongMaterial({color: 0x44aa88});  // greenish blue
+
+const cube = new THREE.Mesh(geometry, material);
+//scene.add(cube);
+
+function render(time) {
+time *= 0.001;  // convert time to seconds
+
+cube.rotation.x = time;
+cube.rotation.y = time;
+
+renderer.render(scene, camera);
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+requestAnimationFrame(render);
+}
+requestAnimationFrame(render);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let balloonLoader = new THREE.GLTFLoader();
+let balloonLoader2 = new THREE.GLTFLoader();
+
+balloonLoader.load('./model/techman3.glb', (gltf) => {
+    Mesh = gltf.scene;
+    Mesh.scale.set(0.8,0.8,0.8);
+    /*scene.add(Mesh);/**/
+    Mesh.rotation.x = -Math.PI / 4 /*- 3*Math.PI /5 ;*/;
+
+    scene.add( Mesh );
+
+
+
+    gltf.parser.getDependencies( 'material' ).then( ( materials ) => {
+      console.log( materials );
+    } );
+
+
+    Mesh.material = new THREE.MeshPhongMaterial({
+      color: 0xFFE968,
+      side: THREE.DoubleSide,
+    });
+    const newMaterial = new THREE.MeshPhongMaterial({
+      color: 0xFFE968,
+      side: THREE.DoubleSide,
+    });
+
+
+});
+
+
+
+balloonLoader2.load('./model/techman3.glb', (gltf) => {
+    Mesh2 = gltf.scene;
+    Mesh2.scale.set(0.8,0.8,0.8);
+    /*scene.add(Mesh2);/**/
+    Mesh2.rotation.x = Math.PI + Math.PI / 4 /*- 3*Math.PI /5 ;*/ ;
+
+    scene.add( Mesh2 );
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scene.add(techmanGroup);
+techmanGroup.position.x = 0;
+techmanGroup.position.y = 10;
+techmanGroup.position.z = 15;
+
+var loader = new THREE.TextureLoader();
+
+// Load an image file into a custom material
+var CherriesMaterial = new THREE.MeshBasicMaterial({
+  map: loader.load('cherries.png'),
+  transparent: true,
+});
+
+// create a plane geometry for the image with a width of 10
+// and a height that preserves the image's aspect ratio
+var cheriesGeometry = new THREE.PlaneGeometry(10, 10*.75);
+
+// combine our image geometry and material into a mesh
+var sprite = new THREE.Mesh(cheriesGeometry, CherriesMaterial);
+
+// set the position of the image mesh in the x,y,z dimensions
+sprite.position.set(0,0,0);
+sprite.scale.set(.03,.03,.03);
+sprite.rotation.z = Math.PI;
+sprite.position.z = .6;
+//sprite.rotation.x = Math.PI / 17;
+
+// add the image to the scene
+scene.add(sprite);
+
+var frame = 0;
+var ohmnomSine = 0;
+var todoCounter = -3;
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    if (Mesh && Mesh.rotation) {
+
+        ohmnomSine = (Math.sin(frame) * .5 + .5);
+
+        //var xRotation = ((mouseX) - (canvas.width / 2)) * .001;
+
+        //techmanGroup.rotation.y = xRotation;
+        Mesh2.rotation.x = Math.PI + ((Math.PI / 4) * ohmnomSine) /*- 3*Math.PI /5 ;*/;
+        Mesh.rotation.x =  (-Math.PI / 4) * ohmnomSine /*- 3*Math.PI /5 ;*/;
+
+        todoCounter += .01
+
+        if (todoCounter > 0.1) {
+          todoCounter = -3;
+        }
+        sprite.position.y = todoCounter;
+
+        frame += .3;
+    }
+    renderer.render(scene, camera);
+}
+animate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+main();
+
+</script>
+</body>
+</html>
