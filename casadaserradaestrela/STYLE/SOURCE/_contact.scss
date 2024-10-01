@@ -1,0 +1,104 @@
+.contact-page {
+
+  .full-height-wrapper.hero {
+    height: 100vh;
+    max-height: 500px;
+    background-image:url(../../img/hero_bg_grey.jpg);
+    background-size:cover;
+    background-position:center center;
+    margin-bottom:60px;
+    box-shadow: rgba(184,100,44,.1) 0 5px 20px inset;
+  }
+
+  .looking-for-talent {
+    margin-bottom:60px;
+  }
+
+  .white-background {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: rgba(184,100,44,.1) 0 5px 20px;
+  }
+
+  .contact-form {
+    margin-bottom:30px;
+
+    .row {
+      margin-left:-30px;
+      margin-right:-30px;
+    }
+    form {
+      width: 100%;
+
+      .input-wrapper {
+        margin-top:25px;
+
+        &:last-child {
+          margin-bottom:25px;
+        }
+
+        input {
+          width:100%;
+          padding:13px 20px;
+          border:#dddddd solid 2px;
+
+          &::placeholder {
+            color:#aaaaaa;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform:uppercase;
+            letter-spacing: .05em;
+          }
+        }
+      }
+
+      .main-button {
+        display: block;
+        width: 100%;
+        margin-top: 25px;
+      }
+    }
+  }
+
+  .card-3 {
+    margin-bottom:109px;
+
+    h3.card-title {
+      font-size: 32px;
+      line-height: 48px;
+      margin-bottom:16px;
+      margin-top:0;
+    }
+
+    p.card-description {
+      font-size: 28px;
+      line-height: 34px;
+      margin-bottom:0;
+      color:$text-color;
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .contact-page {
+    .card-3 {
+      margin-bottom:24px;
+
+      h3.card-title {
+        font-size: 22px;
+        line-height: 32px;
+      }
+
+      p.card-description {
+        font-size: 20px;
+        line-height: 25px;
+      }
+
+      &:nth-child(3) {
+        margin-bottom:49px;
+      }
+    }
+  }
+}
