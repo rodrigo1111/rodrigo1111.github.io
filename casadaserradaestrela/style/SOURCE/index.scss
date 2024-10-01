@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+
+@font-face {
+    font-family: "MierB";
+    src: url("../../fonts/MierB/BAHNSCHRIFT 1.woff") format('woff');
+    font-weight:400;
+}
+@font-face {
+    font-family: "MierB";
+    src: url("../../fonts/MierB/MierB-Bold.woff") format('woff');
+    font-weight:700;
+}
+
+@font-face {
+    font-family: "General-Grotesque-Mono";
+    src: url("../../fonts/General_Grotesque_Mono/GeneralGrotesqueMono-Regular.woff") format('woff');
+}
+
+
+
+html {
+  .transition-fade {
+    transition: .4s;
+    opacity: 1;
+    transform:translateY(0);
+
+    &:nth-child(2) {
+      transition-delay: .1s;
+    }
+  }
+
+  &.is-animating {
+    .transition-fade {
+      opacity: 0;
+      transform:translateY(30px);
+    }
+
+    .fixed-nav-wrapper {
+      * {
+        transition: background .3s ease .25s, color .2s ease .35s;
+      }
+    }
+    body {
+      transition: background .3s ease .25s, color .2s ease .35s;
+    }
+  }
+
+  &.light-theme {
+    $background-color: #fbf3e5;
+    $lighter-dark-color: #666666;
+    $text-color: #726045;
+    $accent-primary: #baf2ff;
+    $accent-primary-light: #baf2ff;
+    $accent-primary-dark: #baf2ff;
+    $accordion-bg-color: #F5F5F7;
+    @import "main";
+  }
+
+  &.dark-theme {
+    $background-color: #726045;
+    $lighter-dark-color: #191A1B;
+    $text-color: #FFFFFF;//#F5F0EB;
+    $accent-primary: #baf2ff;
+    $accent-primary-light: #baf2ff;
+    $accent-primary-dark: #baf2ff;
+    $accordion-bg-color: #131313;
+    @import "main";
+  }
+}
