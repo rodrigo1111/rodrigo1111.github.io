@@ -48,9 +48,9 @@ html {
   }
 
   &.light-theme {
-    $background-color: #fbf3e5;
+    $background-color: #eaeef6;
     $lighter-dark-color: #666666;
-    $text-color: #726045;
+    $text-color: #4e5969;
     $accent-primary: #baf2ff;
     $accent-primary-light: #baf2ff;
     $accent-primary-dark: #baf2ff;
@@ -59,7 +59,7 @@ html {
   }
 
   &.dark-theme {
-    $background-color: #726045;
+    $background-color: #4e5969;
     $lighter-dark-color: #191A1B;
     $text-color: #FFFFFF;//#F5F0EB;
     $accent-primary: #baf2ff;
