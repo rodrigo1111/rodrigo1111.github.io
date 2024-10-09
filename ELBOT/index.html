@@ -1,8 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ELBOT</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    <meta name="theme-color" content="#333333">
+    <title>ELBOT.</title>
+    <meta name="title" content="ELBOT.">
+    <meta name="description" content="ELBOT. description">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ELBOT.">
+    <meta property="og:description" content="ELBOT. description">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -10,6 +22,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ffffff">
     
+    <link href="bootstrap-5.0.2-dist/css/bootstrap.css" rel="stylesheet">
 
     <style>
 
@@ -25,17 +38,33 @@
           height:calc(100vh - 100px);
           position:fixed;
           border-radius:50px;
+          transition: margin .6s cubic-bezier(.8,0,1,1) .3s, padding .6s cubic-bezier(.8,0,1,1) .3s, width .6s cubic-bezier(.8,0,1,1) .3s, height .6s cubic-bezier(.8,0,1,1) .3s, border-radius .3s cubic-bezier(0,.8,1,1);
+        }
+
+        .grey-background.fullscreen {
+          margin:0;
+          margin-top:50px;
+          border-radius:0;
+          width:100%;
+          height:calc(100vh - 50px);
+          padding:50px;
+          padding-top:0;
+          transition: margin .6s cubic-bezier(.8,0,1,1), padding .6s cubic-bezier(.8,0,1,1), width .6s cubic-bezier(.8,0,1,1), height .6s cubic-bezier(.8,0,1,1), border-radius .3s cubic-bezier(0,.8,1,1) .6s;
+        }
+
+        .content-wrapper-wrapper {
+          position:relative;
         }
 
         .content {
           font-family: "Integral CF";
           font-size:72pt;
           width:100%;
-          height:100vh;
+          height: calc(100vh - 100px);
           text-align:center;
           position:absolute;
           color:#FFFFFF;
-          padding-top:50vh;
+          padding-top:calc(50vh - 50px);
         }
 
         .content svg {
@@ -47,6 +76,7 @@
           color:transparent;
           z-index:3;
         }
+
         .content-front path {
           fill:transparent;
           stroke:#FFFFFF;
@@ -55,6 +85,13 @@
 
         .content-back {
           z-index:1;
+        }
+
+        .content-front svg,
+        .content-back svg {
+          width:80%;
+          height:auto;
+          max-width:1200px;
         }
 
         #c {
@@ -155,19 +192,31 @@
         }
 
 
-
+        #c {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       $(document).ready(function(){
         $("html").addClass("loaded");
+
+        $(".grey-background").click(function(){
+          if ($(this).hasClass("fullscreen")){
+            $(this).removeClass("fullscreen");
+          } else {
+            $(this).addClass("fullscreen");
+          }
+        })
       });
     </script> 
 </head>
 <body>
 <div class="grey-background">
-  <div>
+  <div class="content-wrapper-wrapper">
     <div class="content content-front">
       <svg width="1141" height="308" viewBox="0 0 1141 308" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M170.623 1.43326H8.07265C3.62848 1.43326 0 5.06174 0 9.51996V298.996C0 303.454 3.62847 307.083 8.08671 307.083H170.623C175.081 307.083 178.695 303.454 178.695 298.996V258.577C178.695 254.104 175.067 250.476 170.623 250.476H109.164V169.623H159.836C164.294 169.623 167.936 165.994 167.936 161.55V121.117C167.936 116.63 164.294 113.03 159.836 113.03H109.164V58.0402H170.623C175.081 58.0402 178.695 54.4258 178.695 49.9676V9.51996C178.695 5.06174 175.081 1.43326 170.623 1.43326Z" fill="white"/>
