@@ -20,7 +20,7 @@ function main() {
 
 
 
-  let elbotMesh, outlineMesh, outline2Mesh;
+  let elbotMesh, outlineMesh, outline2Mesh, irisMesh;
   camera.position.z = 5;
   camera.position.y = 0;
   camera.rotation.z = (Math.PI);
@@ -28,6 +28,7 @@ function main() {
   let outlineLoader = new GLTFLoader();
   let outline2Loader = new GLTFLoader();
   const elbotMeshGroup = new THREE.Group();
+  const irisMeshGroup = new THREE.Group();
   const outlineMeshGroup = new THREE.Group();
   const outline2MeshGroup = new THREE.Group();
 
@@ -81,7 +82,18 @@ function main() {
     scene.add( elbotMeshGroup );
   });
 
+  elbotLoader.load('./model/iris_c.glb', (gltf) => {
+    irisMesh = gltf.scene;
+    irisMesh.scale.set(0.8,0.8,0.8);
 
+    irisMesh.position.set((0.519736 * .8), (0.090083 * .8), (-.4 + (0.410389 * .8)));
+
+    irisMesh.rotation.z = Math.PI;
+
+
+    irisMeshGroup.add( irisMesh );
+    scene.add( irisMeshGroup );
+  });
 
 
 
@@ -130,6 +142,17 @@ function main() {
 		if ( resizeRendererToDisplaySize( renderer ) ) {
 
 			const canvas = renderer.domElement;
+
+      var temp = window.innerWidth / 2000;
+
+      if (temp > 1) {
+        temp = 1;
+      }
+
+      elbotMeshGroup.scale.set(temp,temp,temp);~
+      irisMeshGroup.scale.set(temp,temp,temp);
+      outlineMeshGroup.scale.set(temp,temp,temp);
+      outline2MeshGroup.scale.set(temp,temp,temp);
 			//camera.aspect = canvas.clientWidth / canvas.clientHeight;
       camera.left = window.innerWidth / 700;
       camera.right = -(window.innerWidth / 700)
@@ -143,16 +166,39 @@ function main() {
 
 
 
+    var sinOffsetY = Math.sin(time * 4) / 80;
+    var sinOffsetX = Math.sin(time * 2) / 60;
+    var sinOffsetZ = Math.sin(time * 3) / 160;
 
+    var sinOffsetY = Math.sin(time * 3) / 40;
+    var sinOffsetX = Math.sin(time * 6) / 30;
+    var sinOffsetZ = Math.sin(time * 3) / 80;
 
-    elbotMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) /*- 3*Math.PI /5 ;*/;
-    elbotMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) /*- 3*Math.PI /5 ;*/;
+    var sinIrisOffsetZ = Math.sin(time * 10) / 10;
 
-    outlineMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) /*- 3*Math.PI /5 ;*/;
-    outlineMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) /*- 3*Math.PI /5 ;*/;
+    elbotMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetY /*- 3*Math.PI /5 ;*/;
+    elbotMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetX /*- 3*Math.PI /5 ;*/;
+    elbotMeshGroup.rotation.z = sinOffsetZ;
+
+    outlineMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetY /*- 3*Math.PI /5 ;*/;
+    outlineMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetX /*- 3*Math.PI /5 ;*/;
+    outlineMeshGroup.rotation.z = sinOffsetZ;
     
-    outline2MeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) /*- 3*Math.PI /5 ;*/;
-    outline2MeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) /*- 3*Math.PI /5 ;*/;
+    outline2MeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetY /*- 3*Math.PI /5 ;*/;
+    outline2MeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetX /*- 3*Math.PI /5 ;*/;
+    outline2MeshGroup.rotation.z = sinOffsetZ;
+
+    irisMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetY /*- 3*Math.PI /5 ;*/;
+    irisMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetX /*- 3*Math.PI /5 ;*/;
+    irisMeshGroup.rotation.z = sinOffsetZ;
+
+
+
+
+
+
+    
+
 
 
 
