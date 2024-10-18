@@ -1,3 +1,30 @@
+.elbot-navbar, .elbot-jp-footer {
+    position:fixed;
+    height:50px;
+    width:100%;
+    top:0;
+    left:0;
+
+    .elbot-navbar-col{
+        background-color:$elbot-white;
+        height:40px;
+        margin-top:5px;
+        border-radius: 6px;
+        display:flex;
+        justify-content:center;
+
+        img {
+            margin-top:10px;
+            height:20px;
+            width:auto;
+        }
+    }
+}
+.elbot-jp-footer {
+    bottom:0;
+    top:unset;
+}
+
 .hero-button-wrapper {
     display:flex;
     flex-direction:row;
