@@ -152,7 +152,9 @@ function main() {
   };
 
 
-
+  
+  var scrollTransitionStartFrame = -1;
+  var scrollTransitionRotationX = 0;
 
 	function render( time ) {
 
@@ -162,16 +164,15 @@ function main() {
 
 			const canvas = renderer.domElement;
 
-      var temp = window.innerWidth / 2000;
-
-      if (temp > 1) {
-        temp = 1;
+      var responsiveSize = window.innerWidth / 2000;
+      if (responsiveSize > 1) {
+        responsiveSize = 1;
       }
 
-      elbotMeshGroup.scale.set(temp,temp,temp);
-      irisMeshGroup.scale.set(temp,temp,temp);
-      outlineMeshGroup.scale.set(temp,temp,temp);
-      outline2MeshGroup.scale.set(temp,temp,temp);
+      elbotMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
+      irisMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
+      outlineMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
+      outline2MeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
 			//camera.aspect = canvas.clientWidth / canvas.clientHeight;
       camera.left = window.innerWidth / 700;
       camera.right = -(window.innerWidth / 700)
@@ -197,6 +198,11 @@ function main() {
     
 
     var sinIrisFlickerZ = Math.sin(time * 70) / 15;
+
+    
+
+
+
     
 
     if ( mouseY > (window.innerHeight / 2)) {
@@ -205,33 +211,45 @@ function main() {
       var sinIrisOffsetZ = -Math.atan( (mouseX - (window.innerWidth / 2)) / (mouseY - (window.innerHeight / 2))) + Math.PI;
     }
 
-    
+    if (isHeroTransitioning) {
+      if (scrollTransitionStartFrame == -1) {
+        scrollTransitionStartFrame = time;
+        //console.log("step1  " + scrollTransitionStartFrame);
+      } else if ((time - scrollTransitionStartFrame) < .7) {
+        scrollTransitionRotationX = ((time - scrollTransitionStartFrame)*2) * ((time - scrollTransitionStartFrame)*2);
+        //console.log("step2  " + (time - scrollTransitionStartFrame));
+      } else {
+        isHeroTransitioning = false;
+        scrollTransitionRotationX = 0;
+        //console.log("step3  " + scrollTransitionRotationX);
+      }
+    } else {
+      if (scrollTransitionStartFrame != -1) {
+        scrollTransitionStartFrame = -1;
+      }
+    }
+
     elbotMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    elbotMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX;
+    elbotMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
     elbotMeshGroup.rotation.z = sinOffsetRotationZ;
     elbotMeshGroup.position.y = sinOffsetPositionY;
 
     outlineMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    outlineMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX;
+    outlineMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
     outlineMeshGroup.rotation.z = sinOffsetRotationZ;
     outlineMeshGroup.position.y = sinOffsetPositionY;
     
     outline2MeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    outline2MeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX;
+    outline2MeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
     outline2MeshGroup.rotation.z = sinOffsetRotationZ;
     outline2MeshGroup.position.y = sinOffsetPositionY;
     
 
     irisMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    irisMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX;
+    irisMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
     pivotR.rotation.z = sinIrisOffsetZ + sinIrisFlickerZ;
     pivotL.rotation.z = sinIrisOffsetZ + sinIrisFlickerZ;
     irisMeshGroup.position.y = sinOffsetPositionY;
-
-
-
-
-
 
     
 

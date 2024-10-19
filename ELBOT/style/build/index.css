@@ -185,19 +185,28 @@ html .hero-elbot-logo-front {
   opacity: 0;
   transition: opacity 1s ease 2s;
 }
-html .hero-elbot-logo-back path {
+html .hero-elbot-logo-back path.clr-white {
   opacity: 0;
   fill: #FEE342;
   fill: #ffc74e;
   stroke: none;
   transition: fill 1.1s ease 2.7s, opacity 0.1s ease 3s;
 }
-html #c {
+html .hero-elbot-logo-back path.clr-grey-2 {
+  opacity: 0;
+  fill: #c3ced9;
+}
+html .canvas-wrapper {
   opacity: 0;
   z-index: 2;
   position: fixed;
   margin-left: -50px;
   margin-top: -50px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+html .canvas-wrapper #c {
   width: 100%;
   height: 100%;
   display: block;
@@ -221,6 +230,11 @@ html.loaded .grey-background.fullscreen {
   padding: 50px;
   padding-top: 0;
   transition: margin 0.6s cubic-bezier(0.8, 0, 1, 1), padding 0.6s cubic-bezier(0.8, 0, 1, 1), width 0.6s cubic-bezier(0.8, 0, 1, 1), height 0.6s cubic-bezier(0.8, 0, 1, 1), border-radius 0.5s cubic-bezier(0.8, 0, 0.5, 1) 0.3s;
+}
+html.loaded .grey-background.fullscreen #c {
+  opacity: 0;
+  margin-top: -200px;
+  transition: opacity 0.7s ease, margin 0.7s ease-in;
 }
 html.loaded .grey-background .hero-elbot-logo-wrapper {
   position: relative;
@@ -249,9 +263,15 @@ html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbo
   opacity: 1;
 }
 html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbot-logo-front path {
+  stroke-width: 2px;
+}
+html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbot-logo-front path.clr-white {
   fill: transparent;
   stroke: #ffffff;
-  stroke-width: 2px;
+}
+html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbot-logo-front path.clr-grey-2 {
+  fill: transparent;
+  stroke: transparent;
 }
 html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbot-logo-back {
   z-index: 1;
@@ -259,8 +279,14 @@ html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbo
 }
 html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbot-logo-back path {
   opacity: 1;
-  fill: #ffffff;
   transition: fill 1.1s ease 2.7s, opacity 0.1s ease 3s;
+}
+html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbot-logo-back path.clr-white {
+  fill: #ffffff;
+}
+html.loaded .grey-background .hero-elbot-logo-wrapper .hero-elbot-logo.hero-elbot-logo-back path.clr-grey-2 {
+  opacity: 1;
+  transition: opacity 0.6s ease 4s;
 }
 html.loaded .grey-background .hero-elbot-logo-wrapper.transition .hero-elbot-logo {
   padding-top: calc(35vh - 50px);
@@ -271,7 +297,7 @@ html.loaded .grey-background .hero-elbot-logo-wrapper.transition .hero-elbot-log
   padding-top: calc(40vh - 50px);
   transition: padding 0.6s ease-in, opacity 0.6s ease;
 }
-html.loaded .grey-background #c {
+html.loaded .grey-background .canvas-wrapper {
   animation: reveal-elbot-hero 1.5s forwards;
 }
 @keyframes reveal-elbot-hero {
