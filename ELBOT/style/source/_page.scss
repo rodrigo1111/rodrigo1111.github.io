@@ -13,11 +13,25 @@
         display:flex;
         justify-content:center;
 
-        img {
+        .navbar-logo-wrapper {
             margin-top:10px;
             height:20px;
             width:auto;
+            overflow:hidden;
+
+            img {
+                height:100%;
+                width:auto;
+                vertical-align: baseline;
+                margin-top:20px;
+                transition:margin .6s ease-out;
+            }
         }
+    }
+
+    &.active .elbot-navbar-col img {
+        margin-top:0;
+        transition:margin .6s ease-out 1.5s;
     }
 }
 .elbot-jp-footer {

@@ -21,26 +21,47 @@ function main() {
 
 
 
-  var elbotMesh, outlineMesh, outline2Mesh, irisMeshLeft, irisMeshRight;
+  var elbotMesh, outlineMesh, outline2Mesh, /*outline3Mesh,*/ irisMeshLeft, irisMeshRight;
   camera.position.z = 5;
   camera.position.y = 0;
   camera.rotation.z = (Math.PI);
   let elbotLoader = new GLTFLoader();
   let outlineLoader = new GLTFLoader();
   let outline2Loader = new GLTFLoader();
+  //let outline3Loader = new GLTFLoader();
   var elbotMeshGroup = new THREE.Group();
   var irisMeshGroup = new THREE.Group();
   var outlineMeshGroup = new THREE.Group();
   var outline2MeshGroup = new THREE.Group();
+  //var outline3MeshGroup = new THREE.Group();
   var pivotL = new THREE.Group();
   var pivotR = new THREE.Group();
   
+/*
+  outline3Loader.load('./model/outline_aqua2.glb', (gltf) => {
+    outline3Mesh = gltf.scene;
+    outline3Mesh.scale.set(0.8,0.8,0.8);
 
-  outline2Loader.load('./model/outline2_1.glb', (gltf) => {
+    const lightGreenColor = new THREE.Color("rgb(244,251,229)").convertSRGBToLinear();
+
+    var newMaterial = new THREE.MeshBasicMaterial({color: lightGreenColor, side: THREE.BackSide});
+    outline3Mesh.traverse((o) => {
+      if (o.isMesh) o.material = newMaterial;
+    });
+
+    outline3Mesh.position.z = -.4;
+
+    outline3MeshGroup.add( outline3Mesh );
+    scene.add( outline3MeshGroup );
+
+    outline3MeshGroup.position.z = -9;
+  });
+*/
+  outline2Loader.load('./model/outline_aqua.glb', (gltf) => {
     outline2Mesh = gltf.scene;
     outline2Mesh.scale.set(0.8,0.8,0.8);
 
-    const lightGreenColor = new THREE.Color("rgb(179,251,229)").convertSRGBToLinear();
+    const lightGreenColor = new THREE.Color("rgb(219,226,232)").convertSRGBToLinear();
 
     var newMaterial = new THREE.MeshBasicMaterial({color: lightGreenColor, side: THREE.BackSide});
     outline2Mesh.traverse((o) => {
@@ -55,7 +76,7 @@ function main() {
     outline2MeshGroup.position.z = -6;
   });
 
-  outlineLoader.load('./model/outline5.glb', (gltf) => {
+  outlineLoader.load('./model/outline_dark_blue.glb', (gltf) => {
     outlineMesh = gltf.scene;
     outlineMesh.scale.set(0.8,0.8,0.8);
 
@@ -74,7 +95,7 @@ function main() {
     outlineMeshGroup.position.z = -3;
   });
 
-  elbotLoader.load('./model/elbot5.glb', (gltf) => {
+  elbotLoader.load('./model/elbot.glb', (gltf) => {
     elbotMesh = gltf.scene;
     elbotMesh.scale.set(0.8,0.8,0.8);
 
@@ -86,7 +107,7 @@ function main() {
     scene.add( elbotMeshGroup );
   });
 
-  elbotLoader.load('./model/iris2.glb', (gltf) => {
+  elbotLoader.load('./model/iris.glb', (gltf) => {
     //pivot.scale.set(0.8,0.8,0.8);
     
     pivotR.position.set((0.519736 * .8), (0.090083 * .8), (-.4 + (0.410389 * .8)));
@@ -173,6 +194,7 @@ function main() {
       irisMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
       outlineMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
       outline2MeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
+      //outline3MeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
 			//camera.aspect = canvas.clientWidth / canvas.clientHeight;
       camera.left = window.innerWidth / 700;
       camera.right = -(window.innerWidth / 700)
@@ -214,21 +236,20 @@ function main() {
     if (isHeroTransitioning) {
       if (scrollTransitionStartFrame == -1) {
         scrollTransitionStartFrame = time;
-        //console.log("step1  " + scrollTransitionStartFrame);
-      } else if ((time - scrollTransitionStartFrame) < .7) {
-        scrollTransitionRotationX = ((time - scrollTransitionStartFrame)*2) * ((time - scrollTransitionStartFrame)*2);
-        //console.log("step2  " + (time - scrollTransitionStartFrame));
+      } else if ((time - scrollTransitionStartFrame) < 1.4) {
+        if ((time - scrollTransitionStartFrame) > .7) {
+          scrollTransitionRotationX = (((time - scrollTransitionStartFrame) - .7)*2) * (((time - scrollTransitionStartFrame) - .7)*2);
+        }
       } else {
         isHeroTransitioning = false;
         scrollTransitionRotationX = 0;
-        //console.log("step3  " + scrollTransitionRotationX);
       }
     } else {
       if (scrollTransitionStartFrame != -1) {
         scrollTransitionStartFrame = -1;
       }
     }
-
+    
     elbotMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
     elbotMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
     elbotMeshGroup.rotation.z = sinOffsetRotationZ;
@@ -243,7 +264,12 @@ function main() {
     outline2MeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
     outline2MeshGroup.rotation.z = sinOffsetRotationZ;
     outline2MeshGroup.position.y = sinOffsetPositionY;
-    
+/*
+    outline3MeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
+    outline3MeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
+    outline3MeshGroup.rotation.z = sinOffsetRotationZ;
+    outline3MeshGroup.position.y = sinOffsetPositionY;
+    */
 
     irisMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
     irisMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;

@@ -65,12 +65,12 @@ html {
                 height:calc(100vh - 50px);
                 padding:50px;
                 padding-top:0;
-                transition: margin .6s cubic-bezier(.8,0,1,1), padding .6s cubic-bezier(.8,0,1,1), width .6s cubic-bezier(.8,0,1,1), height .6s cubic-bezier(.8,0,1,1), border-radius .5s cubic-bezier(.8,0,.5,1) .3s;
+                transition: margin .6s cubic-bezier(.8,0,1,1) .6s, padding .6s cubic-bezier(.8,0,1,1) .6s, width .6s cubic-bezier(.8,0,1,1) .6s, height .6s cubic-bezier(.8,0,1,1) .6s, border-radius .5s cubic-bezier(.8,0,.5,1) .9s;
 
                 #c {
                     opacity:0;
                     margin-top:-200px;
-                    transition:opacity .7s ease, margin .7s ease-in;
+                    transition:opacity .7s ease .7s, margin .7s ease-in .7s;
                 }
             }
     
@@ -141,11 +141,16 @@ html {
                     .hero-elbot-logo {
                         padding-top: calc(35vh - 50px);
                         opacity:0;
-                        transition:padding .6s ease-in, opacity .4s ease .2s;
+                        transition:padding .6s ease-in .6s, opacity .4s ease .8s;
     
                         &.hero-elbot-logo-back {
                             padding-top: calc(40vh - 50px);
-                            transition:padding .6s ease-in, opacity .6s ease;
+                            transition:padding .6s ease-in .6s, opacity .6s ease .6s;
+
+                            path.clr-grey-2 {
+                                opacity:0;
+                                transition: opacity .4s ease;
+                            }
                         }
                     }
                 }
