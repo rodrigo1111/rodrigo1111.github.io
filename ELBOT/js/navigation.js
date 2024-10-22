@@ -141,8 +141,8 @@ function readyScrollActive(){
 
   }
 */
-  previousActiveSection = activeSection;
-}
+    previousActiveSection = activeSection;
+  }
 }
 
 
@@ -182,6 +182,8 @@ function readyScrollVisible() {
   if (visibleSection != previousVisibleSection) {
     $("section").removeClass("visible");
     $("section").eq(visibleSection).addClass("visible");
+
+    $([document.documentElement, document.body]).scrollTop($("section:eq(" + visibleSection + ")").offset().top);
     
     $(".bullet-scroll").removeClass("active");
     $('.bullet-scroll[data-index=' + (visibleSection + 1) + ']').addClass("active");
