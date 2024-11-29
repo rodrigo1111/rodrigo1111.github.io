@@ -55,156 +55,73 @@ $(document).ready(function(){
 $(document).ready( function(){
   readyResize();
   readyScrollActive();
-  readyScrollVisible();
 } );
 $(window).resize( readyResize );
 $(window).scroll( function(){
   readyScrollActive();
-  readyScrollVisible();
 } );
 
-var sectionsHeights = [];
-var activeSection, previousActiveSection, visibleSection, previousVisibleSection;
+var windowHeight;
+var isHeroActive = true;
+var isStatic = true;
+var scrollPosition;
 
 
 
 function readyResize(){
 
-  sectionsHeights = [];
+  windowHeight = $(window).height();
+  scrollPosition = $(document).scrollTop();
 
-  $("section").each(function(index){
-
-    sectionsHeights[index] = $(this).height();
-
-  })
-
-
-  $(".scroller").click(function(){
-    var tempHref = $(this).data("href");
-    $([document.documentElement, document.body]).scrollTop($(tempHref).offset().top);
-  })
-
-  $(".bullet-scroll").click(function(){
-    var temp = $(this).data("index");
-
-    $([document.documentElement, document.body]).scrollTop($("section").eq(temp - 1).offset().top);
-  })
+  
+  if (scrollPosition > 0) {
+    isHeroActive = false;
+  } else {
+    isHeroActive = true;
+  }
+  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 function readyScrollActive(){
-  var scrollPosition = $(document).scrollTop() /* none? /2? /4?*/;
-  var aggregateHeight = sectionsHeights[0];
 
-  for (let i = 0; i < sectionsHeights.length; i++ ){
+  scrollPosition = $(document).scrollTop();
+  console.log("is " + scrollPosition + " equal to " + windowHeight);
+  var tolerance = 100;
+  
 
-    if (scrollPosition < aggregateHeight){
-      activeSection = i;
-      break;
-    }
+  if (isHeroActive && (scrollPosition - tolerance > 0) && isStatic) {
 
-    aggregateHeight += sectionsHeights[i + 1];
-  }
-
-
-
-  if (activeSection != previousActiveSection) {
-    $("section").removeClass("active");
-    $("section").eq(activeSection).addClass("active");
-
-/*
-    if (activeSection < 3) {
-      $("#three-techman , #three-techman-label").removeClass("fixed");
-    } else {
-      $("#three-techman , #three-techman-label").addClass("fixed");
-    }
-
-  }
-*/
-    previousActiveSection = activeSection;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function readyScrollVisible() {
-  var scrollPosition = $(document).scrollTop() + sectionsHeights[0]/4 /* none? /2? /4?*/;
-  var aggregateHeight = sectionsHeights[0];
-
-  for (let i = 0; i < sectionsHeights.length; i++ ){
-
-    if (scrollPosition < aggregateHeight){
-      visibleSection = i;
-      break;
-    }
-
-    aggregateHeight += sectionsHeights[i + 1];
-  }
-
-
-
-  if (visibleSection != previousVisibleSection) {
-    $("section").removeClass("visible");
-    $("section").eq(visibleSection).addClass("visible");
-
-    $([document.documentElement, document.body]).scrollTop($("section:eq(" + visibleSection + ")").offset().top);
+    isStatic = false;
+    $('body').addClass('stop-scrolling');
     
-    $(".bullet-scroll").removeClass("active");
-    $('.bullet-scroll[data-index=' + (visibleSection + 1) + ']').addClass("active");
+    $('html').animate({
+      scrollTop: windowHeight
+    }, function(){
+      isHeroActive = false;
+      setTimeout(function(){
+        isStatic = true;
+        $('body').removeClass('stop-scrolling')
+      }, 1000);
+      
+    });
 
-    $("section").each(function(index){
-      if (index < visibleSection) {
+  } else if (!isHeroActive && (scrollPosition - tolerance < windowHeight) && isStatic) {
+    
+    isStatic = false;
+    $('body').addClass('stop-scrolling');
 
-        $('.section-bg-wrapper[data-section=' + (index + 1) + ']').css("opacity","0");
+    $('html').animate({
+      scrollTop: 0
+    }, function(){
+      isHeroActive = true;
+      setTimeout(function(){
+        isStatic = true;
+        $('body').removeClass('stop-scrolling');
+      }, 1000);
+    });
 
-        if (visibleSection == 1) {
-          $('.section-bg-wrapper[data-section=1]').css("opacity","1");
-          $('.first-section').css("opacity","0");
-        } else if (visibleSection == 0) {
-          $('.first-section').css("opacity","1");
-        }
-        
-      } else {
-        $('.section-bg-wrapper[data-section=' + (index + 1) + ']').css("opacity","1");
-      }
-    })
   }
 
-  previousVisibleSection = visibleSection;
 }

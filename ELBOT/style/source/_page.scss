@@ -1,3 +1,8 @@
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
 .elbot-navbar, .elbot-jp-footer {
     position:fixed;
     height:50px;

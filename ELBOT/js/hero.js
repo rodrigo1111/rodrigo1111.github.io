@@ -2,6 +2,9 @@ import * as THREE from "./../three.js-master/build/three.module.js"
 import {GLTFLoader} from './../three.js-master/examples/jsm/loaders/GLTFLoader.js'
 import { clone } from './../three.js-master/examples/jsm/utils/SkeletonUtils.js'
 
+
+var sparkMesh;
+
 function main() {
 
 	const canvas = document.querySelector( '#c' );
@@ -13,24 +16,26 @@ function main() {
 	const near = 0.1;
 	const far = 5;
 	//const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
-  const camera = new THREE.OrthographicCamera( (window.innerWidth / 700), -(window.innerWidth / 700) , (window.innerHeight / 700), -(window.innerHeight / 700), 1, 20 );
+  const camera = new THREE.OrthographicCamera( (window.innerWidth / 700), -(window.innerWidth / 700) , (window.innerHeight / 700), -(window.innerHeight / 700), 1, 320 );
 	//camera.position.z = 2;
 
 	const scene = new THREE.Scene();
+  var clock = new THREE.Clock();
 
 
 
-
-  var elbotMesh, outlineMesh, outline2Mesh, /*outline3Mesh,*/ irisMeshLeft, irisMeshRight;
+  var elbotMesh, outlineMesh, outline2Mesh, /*outline3Mesh,*/ irisMeshLeft, irisMeshRight, mixer;
   camera.position.z = 5;
   camera.position.y = 0;
   camera.rotation.z = (Math.PI);
   let elbotLoader = new GLTFLoader();
+  let sparkLoader = new GLTFLoader();
   let outlineLoader = new GLTFLoader();
   let outline2Loader = new GLTFLoader();
   //let outline3Loader = new GLTFLoader();
   var elbotMeshGroup = new THREE.Group();
   var irisMeshGroup = new THREE.Group();
+  var sparkMeshGroup = new THREE.Group();
   var outlineMeshGroup = new THREE.Group();
   var outline2MeshGroup = new THREE.Group();
   //var outline3MeshGroup = new THREE.Group();
@@ -73,7 +78,7 @@ function main() {
     outline2MeshGroup.add( outline2Mesh );
     scene.add( outline2MeshGroup );
 
-    outline2MeshGroup.position.z = -6;
+    outline2MeshGroup.position.z = -309;
   });
 
   outlineLoader.load('./model/outline_dark_blue.glb', (gltf) => {
@@ -92,7 +97,7 @@ function main() {
     outlineMeshGroup.add( outlineMesh );
     scene.add( outlineMeshGroup );
 
-    outlineMeshGroup.position.z = -3;
+    outlineMeshGroup.position.z = -306;
   });
 
   elbotLoader.load('./model/elbot.glb', (gltf) => {
@@ -105,6 +110,8 @@ function main() {
 
     elbotMeshGroup.add( elbotMesh );
     scene.add( elbotMeshGroup );
+
+    elbotMeshGroup.position.z = -303;
   });
 
   elbotLoader.load('./model/iris.glb', (gltf) => {
@@ -133,8 +140,38 @@ function main() {
     
     pivotL.add( irisMeshLeft );
     pivotR.add( irisMeshRight );
+
+    elbotMeshGroup.position.z = -303;
   });
 
+  sparkLoader.load('./model/spark2.glb', (gltf) => {
+    sparkMesh = gltf.scene;
+    sparkMesh.scale.set(0.8,0.8,0.8);
+
+    const sparkColor = new THREE.Color("rgb(255,221,96)").convertSRGBToLinear();
+    var newMaterial = new THREE.MeshBasicMaterial({color: sparkColor, side: THREE.BackSide, opacity: 0, transparent: true});
+
+    sparkMesh.traverse((o) => {
+      if (o.isMesh) o.material = newMaterial;
+    });
+
+    sparkMesh.position.z = -.4;
+
+
+
+    sparkMeshGroup.add( sparkMesh );
+    scene.add( sparkMeshGroup );
+
+    mixer = new THREE.AnimationMixer( gltf.scene );
+        
+    gltf.animations.forEach( ( clip ) => {
+      
+        mixer.clipAction( clip ).play();
+      
+    });
+
+    sparkMeshGroup.position.z = -300;
+  });
 
 
 
@@ -192,6 +229,7 @@ function main() {
 
       elbotMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
       irisMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
+      sparkMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
       outlineMeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
       outline2MeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
       //outline3MeshGroup.scale.set(responsiveSize,responsiveSize,responsiveSize);
@@ -277,12 +315,18 @@ function main() {
     pivotL.rotation.z = sinIrisOffsetZ + sinIrisFlickerZ;
     irisMeshGroup.position.y = sinOffsetPositionY;
 
+    sparkMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
+    sparkMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
+    sparkMeshGroup.rotation.z = sinOffsetRotationZ;
+    sparkMeshGroup.position.y = sinOffsetPositionY;
     
 
 
 
 
-
+    var delta = clock.getDelta();
+  
+  if ( mixer ) mixer.update( delta );
 
 
 
@@ -297,3 +341,22 @@ function main() {
 }
 
 main();
+
+
+$(document).ready(function(){
+  $(document).mousedown(function(){
+    const sparkColor = new THREE.Color("rgb(255,221,96)").convertSRGBToLinear();
+    var newMaterial = new THREE.MeshBasicMaterial({color: sparkColor, side: THREE.BackSide, opacity: 1, transparent: true});
+
+    sparkMesh.traverse((o) => {
+      if (o.isMesh) o.material = newMaterial;
+    });
+  }).mouseup(function(){
+    const sparkColor = new THREE.Color("rgb(255,221,96)").convertSRGBToLinear();
+    var newMaterial = new THREE.MeshBasicMaterial({color: sparkColor, side: THREE.BackSide, opacity: 0, transparent: true});
+
+    sparkMesh.traverse((o) => {
+      if (o.isMesh) o.material = newMaterial;
+    });
+  })
+});
