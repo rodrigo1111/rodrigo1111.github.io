@@ -1,0 +1,57 @@
+body {
+    .elbot-navbar {
+        z-index:3;
+        position:fixed;
+        height:30px;
+        width:100%;
+        top:0;
+        left:0;
+        background-color:transparent;
+        transition:background-color .01s ease, box-shadow .01s ease;
+
+        .elbot-navbar-col{
+            height:30px;
+            border-radius: 6px;
+            display:flex;
+            justify-content:center;
+
+            .navbar-logo-wrapper {
+                height:30px;
+                width:100%;
+                overflow:hidden;
+                border-bottom:1px solid transparent;
+                transition:border .3s ease;
+
+                .elbot-logo {
+                    height:20px;
+                    width:auto;
+                    vertical-align: baseline;
+                    margin-top:30px;
+                    transition:margin .6s ease-in;
+
+                    path {
+                        fill:$elbot-grey-3;
+                    }
+                }
+            }
+        }
+    }
+
+    &.content-active {
+        .elbot-navbar {
+            background-color:$elbot-grey-1;
+            box-shadow:0 3px 0 $elbot-grey-1;
+            transition:background-color .01s ease 1.5s, box-shadow .01s ease 1.5s;
+    
+            .elbot-navbar-col .navbar-logo-wrapper {
+                border-bottom:1px solid $elbot-grey-2;
+                transition:border .3s ease 1s;
+
+                .elbot-logo {
+                    margin-top:5px;
+                    transition:margin .6s ease-out 1.5s;
+                }
+            }
+        }
+    }
+}

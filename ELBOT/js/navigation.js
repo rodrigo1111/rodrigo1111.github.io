@@ -11,19 +11,6 @@ $(document).ready(function(){
               window.location = target;
           }, 1500);
       }
-
-
-      if ($(".grey-background").hasClass("fullscreen")){
-        $(".grey-background").removeClass("fullscreen");
-        $(".elbot-navbar").removeClass("active");
-        $(".hero-elbot-logo-wrapper").removeClass("transition");
-        //isHeroTransitioning = false;
-      } else {
-        $(".grey-background").addClass("fullscreen");
-        $(".elbot-navbar").addClass("active");
-        $(".hero-elbot-logo-wrapper").addClass("transition");
-        isHeroTransitioning = true;
-      }
     })
 
 });
@@ -55,6 +42,21 @@ $(document).ready(function(){
 $(document).ready( function(){
   readyResize();
   readyScrollActive();
+/*
+  $(".accordion-wrapper").click(function(){
+    setTimeout(function(){
+      $(".accordion-wrapper").each(function(){
+        var temp = $(this);
+        if ($(this).find(".accordion-title a").attr("aria-expanded") === "true") {
+          temp.removeClass("closed");
+        } else {
+          temp.addClass("closed");
+        }
+      });
+    }, 10);
+
+  });
+  */
 } );
 $(window).resize( readyResize );
 $(window).scroll( function(){
@@ -76,8 +78,12 @@ function readyResize(){
   
   if (scrollPosition > 0) {
     isHeroActive = false;
+    //add/remove class accordingly
+    $("body").addClass("content-active");
   } else {
     isHeroActive = true;
+    //add/remove class accordingly
+    //$("body").addClass("hero-active");
   }
   
 }
@@ -88,13 +94,15 @@ function readyScrollActive(){
 
   scrollPosition = $(document).scrollTop();
   console.log("is " + scrollPosition + " equal to " + windowHeight);
-  var tolerance = 100;
+  var tolerance = 0;
   
 
   if (isHeroActive && (scrollPosition - tolerance > 0) && isStatic) {
 
     isStatic = false;
-    $('body').addClass('stop-scrolling');
+
+    $("body").addClass("content-active scrolling-down").removeClass("hero-active");
+    isHeroTransitioning = true;
     
     $('html').animate({
       scrollTop: windowHeight
@@ -102,15 +110,17 @@ function readyScrollActive(){
       isHeroActive = false;
       setTimeout(function(){
         isStatic = true;
-        $('body').removeClass('stop-scrolling')
+        $("body").removeClass("scrolling-down");
       }, 1000);
       
     });
 
-  } else if (!isHeroActive && (scrollPosition - tolerance < windowHeight) && isStatic) {
+  } else if (!isHeroActive && (scrollPosition + tolerance < windowHeight) && isStatic) {
     
     isStatic = false;
-    $('body').addClass('stop-scrolling');
+
+    $("body").addClass("hero-active scrolling-up").removeClass("content-active");
+    //isHeroTransitioning = false;
 
     $('html').animate({
       scrollTop: 0
@@ -118,7 +128,7 @@ function readyScrollActive(){
       isHeroActive = true;
       setTimeout(function(){
         isStatic = true;
-        $('body').removeClass('stop-scrolling');
+        $("body").removeClass("scrolling-up");
       }, 1000);
     });
 

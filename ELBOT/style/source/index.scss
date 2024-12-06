@@ -1,23 +1,24 @@
-body {
-  margin: 0;
-  padding:0;
-  font-family: "IBM Plex Mono", monospace;
-}
-
-
-
 $elbot-blue: #3849b8;
 $elbot-dark-blue: #1c2878;
 $elbot-aqua: #B3FBE5;
+$elbot-aqua-2: #A7E9E0;
 $elbot-cyan: #99C8FF;
+$elbot-cyan-2: #8FBBF8;
 $elbot-yellow: #FFDD60;
+$elbot-yellow-2: #EBCE69;
 $elbot-grey-1: #dbe2e8;
 $elbot-grey-2: #c3ced9;
 $elbot-grey-3: #8f9faf;
 $elbot-white: #ffffff;
 $elbot-dark: #575F7F;
 
+body {
+  margin: 0;
+  padding:0;
+  font-family: "IBM Plex Mono", monospace;
+}
+
 @import "fonts";
 @import "hero";
-@import "page";
+@import "navbar";
 @import "body";

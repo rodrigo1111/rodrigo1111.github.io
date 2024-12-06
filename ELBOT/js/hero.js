@@ -275,8 +275,8 @@ function main() {
       if (scrollTransitionStartFrame == -1) {
         scrollTransitionStartFrame = time;
       } else if ((time - scrollTransitionStartFrame) < 1.4) {
-        if ((time - scrollTransitionStartFrame) > .7) {
-          scrollTransitionRotationX = (((time - scrollTransitionStartFrame) - .7)*2) * (((time - scrollTransitionStartFrame) - .7)*2);
+        if ((time - scrollTransitionStartFrame) > .1) {
+          scrollTransitionRotationX = (((time - scrollTransitionStartFrame) - .1)*2) * (((time - scrollTransitionStartFrame) - .1)*2);
         }
       } else {
         isHeroTransitioning = false;
