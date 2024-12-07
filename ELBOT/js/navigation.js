@@ -93,11 +93,11 @@ function readyResize(){
 function readyScrollActive(){
 
   scrollPosition = $(document).scrollTop();
-  console.log("is " + scrollPosition + " equal to " + windowHeight);
+  //console.log("is " + scrollPosition + " equal to " + windowHeight);
   var tolerance = 0;
   
 
-  if (isHeroActive && (scrollPosition - tolerance > 0) && isStatic) {
+  if (isHeroActive && (scrollPosition - tolerance > 350) && isStatic) {
 
     isStatic = false;
 
@@ -132,6 +132,13 @@ function readyScrollActive(){
       }, 1000);
     });
 
+  }
+
+  if (isHeroActive) {
+    var chevronMarginTop = 90 - scrollPosition * .5429;
+    var chevronHeight = 50 + scrollPosition * .2857;
+
+    $("body:not(.content-active) .chevron-icon").css({"margin-top": chevronMarginTop, "height": chevronHeight});
   }
 
 }

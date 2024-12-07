@@ -215,6 +215,19 @@ html .hero-section-wrapper .hero-elbot-logo-back path.clr-grey-2 {
   fill: transparent;
   stroke: transparent;
 }
+html .chevron-wrapper {
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  top: calc(100vh - 200px);
+  opacity: 0;
+}
+html.loaded .hero-section-wrapper {
+  pointer-events: all;
+}
 html.loaded .hero-section-wrapper .canvas-wrapper {
   opacity: 0;
   z-index: 2;
@@ -327,6 +340,20 @@ html.loaded .hero-section-wrapper .canvas-wrapper {
     opacity: 1;
   }
 }
+html.loaded .chevron-wrapper {
+  opacity: 1;
+  transition: opacity 1.2s ease 3.5s;
+}
+html.loaded .chevron-wrapper .chevron-icon {
+  height: 50px;
+  width: auto;
+  align-self: center;
+  margin-top: 90px;
+  transition: width 0.05s ease, height 0.05s ease, margin-top 0.05s ease;
+}
+html.loaded .content-active .hero-section-wrapper {
+  pointer-events: none;
+}
 html.loaded .content-active .hero-section-wrapper .grey-background {
   margin: 0;
   border-radius: 0;
@@ -352,12 +379,26 @@ html.loaded .content-active .hero-section-wrapper .hero-elbot-logo-wrapper .hero
   fill: transparent;
   stroke: transparent;
 }
+html.loaded .content-active .chevron-wrapper .chevron-icon {
+  opacity: 0;
+  transition: none;
+}
 html.loaded .scrolling-down .hero-section-wrapper .canvas-wrapper #c {
   margin-top: -400px;
   opacity: 0;
 }
+html.loaded .scrolling-down .chevron-wrapper .chevron-icon {
+  margin-top: 150px !important;
+  height: 20px !important;
+  opacity: 0;
+  transition: opacity 0.2s ease-in 0.1s, margin-top 0.3s ease-in, height 0.3s ease-in, width 0.3s ease-in;
+}
 html.loaded .scrolling-up .hero-section-wrapper .canvas-wrapper #c {
   margin-top: 0;
+  opacity: 0;
+  transition: none;
+}
+html.loaded .scrolling-up .chevron-wrapper .chevron-icon {
   opacity: 0;
   transition: none;
 }
@@ -368,6 +409,10 @@ html.loaded .hero-active .hero-section-wrapper .canvas-wrapper #c {
 }
 html.loaded .hero-active .hero-section-wrapper .hero-elbot-logo-wrapper .hero-elbot-logo {
   transition: padding 0.6s ease-out, opacity 0.6s ease;
+}
+html.loaded .hero-active .chevron-wrapper .chevron-icon {
+  opacity: 1;
+  transition: opacity 1.2s ease 1.5s;
 }
 
 body .elbot-navbar {
@@ -419,6 +464,7 @@ body.content-active .elbot-navbar .elbot-navbar-col .navbar-logo-wrapper .elbot-
 
 body .content-wrapper {
   z-index: 1;
+  pointer-events: none;
   position: relative;
 }
 body .content-wrapper #main {
@@ -601,6 +647,9 @@ body .content-wrapper #main .accordion-item .accordion-collapse.show {
 body .content-wrapper #main .accordion-item .accordion-collapse .accordion-body {
   padding: 35px 0;
   padding-top: 0;
+}
+body.content-active .content-wrapper {
+  pointer-events: all;
 }
 body.content-active .content-wrapper #main {
   padding-top: calc(100vh + 280px);

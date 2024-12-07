@@ -42,9 +42,21 @@ html {
         }
     }
 
+    .chevron-wrapper {
+        position:absolute;
+        height:200px;
+        width:100%;
+        z-index:4;
+        display:flex;
+        justify-content:center;
+        top:calc(100vh - 200px);
+        opacity:0;
+    }
+
     &.loaded {
         
         .hero-section-wrapper {       
+            pointer-events:all;
 
             .canvas-wrapper {
                 opacity:0;
@@ -182,8 +194,23 @@ html {
             }
         }
 
+        .chevron-wrapper {
+            opacity:1;
+            transition:opacity 1.2s ease 3.5s;
+        
+            .chevron-icon {
+                height:50px;
+                width:auto;
+                align-self:center;
+                margin-top:90px;
+                transition:width .05s ease, height .05s ease, margin-top .05s ease;
+            }
+        }
+
         .content-active {
             .hero-section-wrapper {
+                pointer-events:none;
+
                 .grey-background {
                     margin:0;
                     border-radius:0;
@@ -191,8 +218,7 @@ html {
                     height:100vh;
                     padding:50px;
                     padding-top:0;
-                    transition:
-                        margin .6s cubic-bezier(.8,0,1,1),
+                    transition:margin .6s cubic-bezier(.8,0,1,1),
                         padding .6s cubic-bezier(.8,0,1,1),
                         width .6s cubic-bezier(.8,0,1,1),
                         height .6s cubic-bezier(.8,0,1,1),
@@ -225,12 +251,30 @@ html {
                     }
                 }
             }
+
+            .chevron-wrapper {
+                .chevron-icon {
+                    opacity:0;
+                    transition:none;
+                }
+            }
         }
 
         .scrolling-down {
-            .hero-section-wrapper .canvas-wrapper #c {
-                margin-top:-400px;
-                opacity:0;
+            .hero-section-wrapper {
+                .canvas-wrapper #c {
+                    margin-top:-400px;
+                    opacity:0;
+                }
+            }
+
+            .chevron-wrapper {
+                .chevron-icon {
+                    margin-top: 150px !important;
+                    height:20px !important;
+                    opacity:0;
+                    transition:opacity .2s ease-in .1s, margin-top .3s ease-in, height .3s ease-in, width .3s ease-in;
+                }
             }
         }
 
@@ -239,6 +283,13 @@ html {
                 margin-top:-0;
                 opacity:0;
                 transition:none;
+            }
+
+            .chevron-wrapper {
+                .chevron-icon {
+                    opacity:0;
+                    transition:none;
+                }
             }
         }
 
@@ -254,6 +305,13 @@ html {
                     .hero-elbot-logo {
                         transition:padding .6s ease-out, opacity .6s ease;
                     }
+                }
+            }
+
+            .chevron-wrapper {
+                .chevron-icon {
+                    opacity:1;
+                    transition:opacity 1.2s ease 1.5s;
                 }
             }
         }

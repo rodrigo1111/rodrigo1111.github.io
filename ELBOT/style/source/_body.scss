@@ -1,6 +1,7 @@
 body {
     .content-wrapper {
         z-index:1;
+        pointer-events:none;
         position:relative;
         
         #main {
@@ -266,6 +267,8 @@ body {
 
     &.content-active {
         .content-wrapper {
+            pointer-events:all;
+
             #main {
                 padding-top:calc(100vh + 280px);
                 opacity:1;
