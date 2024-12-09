@@ -9,7 +9,7 @@ $(document).ready(function(){
           var target = this.href;
           setTimeout(function(){
               window.location = target;
-          }, 1500);
+          }, 10);
       }
     })
 
@@ -135,8 +135,15 @@ function readyScrollActive(){
   }
 
   if (isHeroActive) {
-    var chevronMarginTop = 90 - scrollPosition * .5429;
-    var chevronHeight = 50 + scrollPosition * .2857;
+    var tempScrollPosition = scrollPosition;
+
+    if (scrollPosition > 350) {
+      tempScrollPosition = 350;
+    }
+
+    var chevronMarginTop = 90 - tempScrollPosition * .5429;
+    //var chevronHeight = 50 + tempScrollPosition * .2857;
+    var chevronHeight = 50 + Math.pow(tempScrollPosition, 3) * (1 / 430000);
 
     $("body:not(.content-active) .chevron-icon").css({"margin-top": chevronMarginTop, "height": chevronHeight});
   }

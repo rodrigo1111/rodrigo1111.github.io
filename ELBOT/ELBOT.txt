@@ -1,0 +1,43 @@
+ELBOT
+
+.grey-background animation on browser-window resize-x
+hero-transition animations
+SKILLS section?
+
+    $(".hero-section-wrapper").addClass("fullscreen");
+    $(".content-wrapper").addClass("active");
+    $(".elbot-navbar").addClass("active");
+    $(".hero-elbot-logo-wrapper").addClass("transition");
+
+
+
+smoother transition on scrolling-up (acrescentar seta [scrolldown] (+up?))
+fonts web-based -> local
+fix .my-work::hover on .scrolling-top
+.my-work animations com mais uma cor melhoradas e syncronizadas (30/15/10)
+fix .hero-elbot-logo-wrapper width
+buggy .scrolling-up mobile chrome (limit margin-top & height)
+
+
+
+
+
+SKILLS
+-git
+-agile
+-photoshop
+-illustrator
+-after effects
+-blender
+-three.js
+-lottie
+-english
+-portuguese
+-spanish
+-javascript
+
+
+
+robots (ref Thereforth)
+consult with Fábio
+consult with Danny
