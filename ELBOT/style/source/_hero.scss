@@ -94,7 +94,7 @@ html {
 
             .hero-elbot-logo-wrapper {
                 position:absolute;
-                width:100%;
+                width:calc(100% - ($elbot-gutter) * 2);
                 height:100%;
                 top:30px;
     
@@ -218,11 +218,7 @@ html {
                     height:100vh;
                     padding:50px;
                     padding-top:0;
-                    transition:margin .6s cubic-bezier(.8,0,1,1),
-                        padding .6s cubic-bezier(.8,0,1,1),
-                        width .6s cubic-bezier(.8,0,1,1),
-                        height .6s cubic-bezier(.8,0,1,1),
-                        border-radius .5s cubic-bezier(.8,0,.5,1) .3s;
+                    transition:none;
                 }
     
                 .canvas-wrapper #c {
@@ -262,6 +258,14 @@ html {
 
         .scrolling-down {
             .hero-section-wrapper {
+                .grey-background {
+                    transition:margin .6s cubic-bezier(.8,0,1,1),
+                        padding .6s cubic-bezier(.8,0,1,1),
+                        width .6s cubic-bezier(.8,0,1,1),
+                        height .6s cubic-bezier(.8,0,1,1),
+                        border-radius .5s cubic-bezier(.8,0,.5,1) .3s;
+                }
+
                 .canvas-wrapper #c {
                     margin-top:-400px;
                     opacity:0;

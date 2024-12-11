@@ -12,6 +12,13 @@ $elbot-grey-3: #8f9faf;
 $elbot-white: #ffffff;
 $elbot-dark: #575F7F;
 
+$font-spacing-1: 35;
+$font-spacing-2: 70;
+$font-size-1: 20;
+$font-size-2: 40;
+
+$elbot-gutter: calc(var(--bs-gutter-x) * .5);
+
 body {
   margin: 0;
   padding:0;

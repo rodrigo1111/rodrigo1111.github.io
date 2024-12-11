@@ -1,6 +1,5 @@
 ELBOT
 
-.grey-background animation on browser-window resize-x
 hero-transition animations
 SKILLS section?
 
@@ -15,9 +14,8 @@ smoother transition on scrolling-up (acrescentar seta [scrolldown] (+up?))
 fonts web-based -> local
 fix .my-work::hover on .scrolling-top
 .my-work animations com mais uma cor melhoradas e syncronizadas (30/15/10)
-fix .hero-elbot-logo-wrapper width
-buggy .scrolling-up mobile chrome (limit margin-top & height)
-
+buggy .scrolling-up mobile chrome
+buggy .scrolling-up small width screen size (firefox)
 
 
 
@@ -35,6 +33,22 @@ SKILLS
 -portuguese
 -spanish
 -javascript
+
+
+MOTION
+-Sven
+-34Type
+-Bacteriophazer
+-FBAUP (Enhanced)
+-ELBOT
+-SK8
+-ZéBob (Enhanced)
+-No Life on Mars
+-KOCMOHABT SCREENS (Trailer?)
+-Slots? -> Espetáculo!?
+-Cloth Simm?
+-Iridescent / Diamond material 2D+3D Hybrid
+-Alguma coisa com o Sculpt do Insta?
 
 
 

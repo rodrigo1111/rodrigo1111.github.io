@@ -257,7 +257,7 @@ html.loaded .hero-section-wrapper .grey-background {
 }
 html.loaded .hero-section-wrapper .hero-elbot-logo-wrapper {
   position: absolute;
-  width: 100%;
+  width: calc(100% - var(--bs-gutter-x) * 0.5 * 2);
   height: 100%;
   top: 30px;
 }
@@ -361,7 +361,7 @@ html.loaded .content-active .hero-section-wrapper .grey-background {
   height: 100vh;
   padding: 50px;
   padding-top: 0;
-  transition: margin 0.6s cubic-bezier(0.8, 0, 1, 1), padding 0.6s cubic-bezier(0.8, 0, 1, 1), width 0.6s cubic-bezier(0.8, 0, 1, 1), height 0.6s cubic-bezier(0.8, 0, 1, 1), border-radius 0.5s cubic-bezier(0.8, 0, 0.5, 1) 0.3s;
+  transition: none;
 }
 html.loaded .content-active .hero-section-wrapper .canvas-wrapper #c {
   opacity: 0;
@@ -382,6 +382,9 @@ html.loaded .content-active .hero-section-wrapper .hero-elbot-logo-wrapper .hero
 html.loaded .content-active .chevron-wrapper .chevron-icon {
   opacity: 0;
   transition: none;
+}
+html.loaded .scrolling-down .hero-section-wrapper .grey-background {
+  transition: margin 0.6s cubic-bezier(0.8, 0, 1, 1), padding 0.6s cubic-bezier(0.8, 0, 1, 1), width 0.6s cubic-bezier(0.8, 0, 1, 1), height 0.6s cubic-bezier(0.8, 0, 1, 1), border-radius 0.5s cubic-bezier(0.8, 0, 0.5, 1) 0.3s;
 }
 html.loaded .scrolling-down .hero-section-wrapper .canvas-wrapper #c {
   margin-top: -400px;
@@ -471,7 +474,6 @@ body .content-wrapper #main {
   padding-top: calc(100vh + 380px);
   opacity: 0;
   transition: opacity 0.2s ease, padding 0.2s ease-in;
-  height: 300vh;
 }
 body .content-wrapper #main .font-title {
   text-transform: uppercase;
@@ -577,6 +579,93 @@ body .content-wrapper #main section.my-work-section-wrapper .my-work-content-row
 }
 body .content-wrapper #main section.my-work-section-wrapper .my-work-content-row .my-work-col:hover .lottie.main.design-main svg path, body .content-wrapper #main section.my-work-section-wrapper .my-work-content-row .my-work-col:hover .lottie.main.coding-main svg path, body .content-wrapper #main section.my-work-section-wrapper .my-work-content-row .my-work-col:hover .lottie.main.character-main svg path {
   fill: #575F7F;
+}
+body .content-wrapper #main section.motion-section-wrapper .motion-reel-wrapper {
+  position: relative;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+body .content-wrapper #main section.motion-section-wrapper .motion-reel-wrapper:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(var(--bs-gutter-x) * 0.5);
+  width: calc(100% - var(--bs-gutter-x) * 0.5 * 2);
+  border-bottom: 1px solid #c3ced9;
+}
+body .content-wrapper #main section.skills-section-wrapper .skills-wrapper {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #c3ced9;
+}
+body .content-wrapper #main section.skills-section-wrapper .skills-wrapper .skills {
+  padding-top: 280px;
+  background-color: #FFDD60;
+}
+body .content-wrapper #main section.social-section-wrapper {
+  margin-bottom: 35px;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(var(--bs-gutter-x) * 0.5);
+  width: calc(100% - var(--bs-gutter-x) * 0.5 * 2);
+  border-bottom: 1px solid #c3ced9;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link:hover.vimeo {
+  background-color: #1ab7ea;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link:hover.instagram {
+  background-color: #C13584;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link .font-p {
+  line-height: 70px;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link .hyperlink-icon {
+  height: 70px;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link .hyperlink-icon .arrow, body .content-wrapper #main section.social-section-wrapper .social-link .hyperlink-icon .square {
+  fill: #8f9faf;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link .hyperlink-icon .arrow {
+  transform: translate(-1px, 1px);
+  transition: transform 0.15s ease-in-out;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link .hyperlink-icon .bg {
+  fill: #c3ced9;
+  opacity: 0;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link:hover .hyperlink-icon .bg {
+  opacity: 1;
+}
+body .content-wrapper #main section.social-section-wrapper .social-link:hover .hyperlink-icon .arrow {
+  transform: translate(2px, -2px);
+}
+body .content-wrapper #main section.social-section-wrapper .footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+body .content-wrapper #main section.social-section-wrapper .footer-wrapper .footer-logo {
+  height: 85px;
+  margin-top: 60px;
+}
+body .content-wrapper #main section.social-section-wrapper .footer-wrapper .font-p {
+  line-height: 210px;
+}
+body .content-wrapper #main section.social-section-wrapper .footer-wrapper:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(var(--bs-gutter-x) * 0.5);
+  width: calc(100% - var(--bs-gutter-x) * 0.5 * 2);
+  border-bottom: 1px solid #c3ced9;
 }
 body .content-wrapper #main .accordion-item {
   background-color: transparent;

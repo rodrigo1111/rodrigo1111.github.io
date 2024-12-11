@@ -254,7 +254,7 @@ function main() {
     var sinOffsetRotationX = Math.sin(time * 3) / 30;
     var sinOffsetRotationZ = Math.sin(time * 1.5) / 80;
 
-    var sinOffsetPositionY = (Math.sin(time * 3) / 80) + 0.00625;
+    var sinOffsetPositionY = (Math.sin(time * 3) / 80) - 0.05;
     
 
     var sinIrisFlickerZ = Math.sin(time * 70) / 15;

@@ -94,7 +94,7 @@ function readyScrollActive(){
 
   scrollPosition = $(document).scrollTop();
   //console.log("is " + scrollPosition + " equal to " + windowHeight);
-  var tolerance = 0;
+  var tolerance = 10;
   
 
   if (isHeroActive && (scrollPosition - tolerance > 350) && isStatic) {

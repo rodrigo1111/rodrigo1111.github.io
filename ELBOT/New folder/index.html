@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <style>
+            body {
+                margin:0;
+            }
+            .section {
+                font-size: 1.4em;
+                letter-spacing: 0.05em;
+                line-height: 1.5em;
+                
+            }
+            .section h2, .section h3 {
+                text-align: center;
+                margin: 0;
+                font-weight: normal;
+            }
+            .section__header {
+                position: sticky;
+                top: 0;
+                color: #a99160;
+                background: #171717;
+                min-height:100vh;
+            }
+            .section__content {
+                padding-bottom:500px;
+            }
+
+            .section__content > div {
+                max-width: 992px;
+            }
+            
+            .content {
+                background-color:red;
+            }
+
+            .temp {
+                padding-top:500px;
+                position:relative;
+            }
+        </style>
+    </head>
+    <body>
+
+        <section class="section">
+            <div class="section__header">
+                <h2>
+                    <a href="#go">Section #1 Header</a>
+                </h2>
+            </div>
+            
+            <div class="section__content">
+
+            </div>
+        </section>
+
+        <div class="temp">
+            <section class="section section2">
+                <div class="section__header">
+                    <h2>
+                        Section #2 Header
+                    </h2>
+                    <div class="content">
+                        <span id="go">text</span>
+                    </div>
+                </div>
+                
+                <div class="section__content">
+
+                </div>
+            </section>
+        </div>
+        
+    </body>
+</html>
