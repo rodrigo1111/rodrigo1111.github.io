@@ -11,6 +11,14 @@ body {
   background: #1c2878;
 }
 
+a, .hyperlink {
+  color: #3849b8;
+  transition: color 0.3s ease;
+}
+a:hover, .hyperlink:hover {
+  color: #1c2878;
+}
+
 .ibm-plex-sans-thin {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 100;
@@ -225,6 +233,14 @@ html .chevron-wrapper {
   top: calc(100vh - 200px);
   opacity: 0;
 }
+html .chevron-wrapper.up {
+  top: 0;
+  opacity: 1 !important;
+}
+html .chevron-wrapper .chevron-link {
+  background-color: transparent;
+  border: none;
+}
 html.loaded .hero-section-wrapper {
   pointer-events: all;
 }
@@ -348,7 +364,7 @@ html.loaded .chevron-wrapper .chevron-icon {
   height: 50px;
   width: auto;
   align-self: center;
-  margin-top: 90px;
+  margin-top: 30px;
   transition: width 0.05s ease, height 0.05s ease, margin-top 0.05s ease;
 }
 html.loaded .content-active .hero-section-wrapper {
@@ -470,8 +486,19 @@ body .content-wrapper {
   pointer-events: none;
   position: relative;
 }
+body .content-wrapper:after {
+  content: "";
+  position: relative;
+  min-height: calc(100vh + 350px + 35px);
+  min-width: 100%;
+  display: block;
+  pointer-events: none;
+}
 body .content-wrapper #main {
-  padding-top: calc(100vh + 380px);
+  padding-top: 280px;
+  padding-bottom: 35px;
+  position: sticky;
+  top: 0;
   opacity: 0;
   transition: opacity 0.2s ease, padding 0.2s ease-in;
 }
@@ -565,7 +592,16 @@ body .content-wrapper #main section.my-work-section-wrapper .my-work-content-row
 }
 body .content-wrapper #main section.my-work-section-wrapper .my-work-content-row .my-work-col .my-work-content-wrapper .lottie.main {
   width: 200px;
+  padding-top: 200px;
+  position: relative;
   margin-left: -20px;
+}
+body .content-wrapper #main section.my-work-section-wrapper .my-work-content-row .my-work-col .my-work-content-wrapper .lottie.main svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 body .content-wrapper #main section.my-work-section-wrapper .my-work-content-row .my-work-col:hover .my-work-content-wrapper {
   z-index: 2;
@@ -603,7 +639,7 @@ body .content-wrapper #main section.skills-section-wrapper .skills-wrapper .skil
   background-color: #FFDD60;
 }
 body .content-wrapper #main section.social-section-wrapper {
-  margin-bottom: 35px;
+  margin-bottom: 0;
 }
 body .content-wrapper #main section.social-section-wrapper .social-link {
   position: relative;
@@ -671,6 +707,7 @@ body .content-wrapper #main .accordion-item {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #c3ced9;
+  border-radius: 0;
 }
 body .content-wrapper #main .accordion-item .accordion-item-button-wrapper {
   display: flex;
@@ -741,7 +778,6 @@ body.content-active .content-wrapper {
   pointer-events: all;
 }
 body.content-active .content-wrapper #main {
-  padding-top: calc(100vh + 280px);
   opacity: 1;
   transition: opacity 0.6s ease 1.4s, padding 0.6s ease-out 1.4s;
 }

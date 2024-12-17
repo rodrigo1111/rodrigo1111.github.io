@@ -1,7 +1,5 @@
 ELBOT
 
-hero-transition animations
-SKILLS section?
 
     $(".hero-section-wrapper").addClass("fullscreen");
     $(".content-wrapper").addClass("active");
@@ -10,13 +8,16 @@ SKILLS section?
 
 
 
-smoother transition on scrolling-up (acrescentar seta [scrolldown] (+up?))
-fonts web-based -> local
-fix .my-work::hover on .scrolling-top
+smoother transition on scrolling-up (acrescentar seta up)
+SKILLS section?
+hero-transition if(accordion:open)
+bug when reloading page from no-mans-land above .content-wrapper (.content-active)
 .my-work animations com mais uma cor melhoradas e syncronizadas (30/15/10)
+hero-transition animations
 buggy .scrolling-up mobile chrome
 buggy .scrolling-up small width screen size (firefox)
-
+fix .my-work::hover on .scrolling-top
+fonts web-based -> local
 
 
 

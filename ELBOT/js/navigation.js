@@ -1,63 +1,24 @@
 var isHeroTransitioning;
 
-$(document).ready(function(){
-    $("html").addClass("loaded");
-
-    $("a.hero-link[href]").click(function(e){
-      e.preventDefault();
-      if (this.href) {
-          var target = this.href;
-          setTimeout(function(){
-              window.location = target;
-          }, 10);
-      }
-    })
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $(document).ready( function(){
   readyResize();
   readyScrollActive();
-/*
-  $(".accordion-wrapper").click(function(){
-    setTimeout(function(){
-      $(".accordion-wrapper").each(function(){
-        var temp = $(this);
-        if ($(this).find(".accordion-title a").attr("aria-expanded") === "true") {
-          temp.removeClass("closed");
-        } else {
-          temp.addClass("closed");
-        }
-      });
-    }, 10);
 
-  });
-  */
+
+
+  $("html").addClass("loaded");
+
+
+
+  $(".chevron-link").click(function(){
+    $('html').animate({
+      scrollTop: (windowHeight + 350)
+    });
+  })
+
 } );
+
 $(window).resize( readyResize );
 $(window).scroll( function(){
   readyScrollActive();
@@ -74,7 +35,9 @@ function readyResize(){
 
   windowHeight = $(window).height();
   scrollPosition = $(document).scrollTop();
+  //console.log("#mainHeight=  " + $("#main").height());
 
+  
   
   if (scrollPosition > 0) {
     isHeroActive = false;
@@ -85,7 +48,12 @@ function readyResize(){
     //add/remove class accordingly
     //$("body").addClass("hero-active");
   }
-  
+  /*
+  console.log("#mainHeight*(aftIFELSE)=  " + $("#main").height());
+  setTimeout(function(){
+    console.log("#mainHeight*(aftTimeout)=  " + $("#main").height());
+  }, 1000);
+  */
 }
 
 
@@ -105,7 +73,7 @@ function readyScrollActive(){
     isHeroTransitioning = true;
     
     $('html').animate({
-      scrollTop: windowHeight
+      scrollTop: (windowHeight + 350)
     }, function(){
       isHeroActive = false;
       setTimeout(function(){
@@ -115,7 +83,7 @@ function readyScrollActive(){
       
     });
 
-  } else if (!isHeroActive && (scrollPosition + tolerance < windowHeight) && isStatic) {
+  } else if (!isHeroActive && (scrollPosition + tolerance < (windowHeight)) && isStatic) {
     
     isStatic = false;
 
@@ -141,11 +109,23 @@ function readyScrollActive(){
       tempScrollPosition = 350;
     }
 
-    var chevronMarginTop = 90 - tempScrollPosition * .5429;
-    //var chevronHeight = 50 + tempScrollPosition * .2857;
+    var chevronMarginTop = 30 - tempScrollPosition * .5429;
     var chevronHeight = 50 + Math.pow(tempScrollPosition, 3) * (1 / 430000);
 
-    $("body:not(.content-active) .chevron-icon").css({"margin-top": chevronMarginTop, "height": chevronHeight});
+    $("body:not(.content-active) .down .chevron-icon").css({"margin-top": chevronMarginTop, "height": chevronHeight});
+  } else {
+    var tempScrollPosition = (windowHeight + 350) - scrollPosition;
+
+    if (scrollPosition < windowHeight) {
+      tempScrollPosition = 350;
+    } else if (scrollPosition > windowHeight + 350) {
+      tempScrollPosition = 0;
+    }
+
+    var chevronMarginTop = 30 + tempScrollPosition * .2714;
+    var chevronHeight = 50 + Math.pow(tempScrollPosition, 3) * (1 / 430000);
+
+    $("body:not(.hero-active) .up .chevron-icon").css({"margin-top": chevronMarginTop, "height": chevronHeight});
   }
 
 }

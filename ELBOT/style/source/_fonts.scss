@@ -7,6 +7,15 @@
   background: $elbot-dark-blue;
 }
 
+a, .hyperlink {
+  color:$elbot-blue;
+  transition:color .3s ease;
+
+  &:hover {
+    color: $elbot-dark-blue;
+  }
+}
+
 .ibm-plex-sans-thin {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 100;

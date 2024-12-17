@@ -288,19 +288,19 @@ function main() {
       }
     }
     
-    elbotMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    elbotMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
-    elbotMeshGroup.rotation.z = sinOffsetRotationZ;
+    elbotMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY + gamma;
+    elbotMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX + beta;
+    elbotMeshGroup.rotation.z = sinOffsetRotationZ + alpha;
     elbotMeshGroup.position.y = sinOffsetPositionY;
 
-    outlineMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    outlineMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
-    outlineMeshGroup.rotation.z = sinOffsetRotationZ;
+    outlineMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY + gamma;
+    outlineMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX + beta;
+    outlineMeshGroup.rotation.z = sinOffsetRotationZ + alpha;
     outlineMeshGroup.position.y = sinOffsetPositionY;
     
-    outline2MeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    outline2MeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
-    outline2MeshGroup.rotation.z = sinOffsetRotationZ;
+    outline2MeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY + gamma;
+    outline2MeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX + beta;
+    outline2MeshGroup.rotation.z = sinOffsetRotationZ + alpha;
     outline2MeshGroup.position.y = sinOffsetPositionY;
 /*
     outline3MeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
@@ -309,20 +309,17 @@ function main() {
     outline3MeshGroup.position.y = sinOffsetPositionY;
     */
 
-    irisMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    irisMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
+    irisMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY + gamma;
+    irisMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX + beta;
     pivotR.rotation.z = sinIrisOffsetZ + sinIrisFlickerZ;
     pivotL.rotation.z = sinIrisOffsetZ + sinIrisFlickerZ;
     irisMeshGroup.position.y = sinOffsetPositionY;
 
-    sparkMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY;
-    sparkMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX;
-    sparkMeshGroup.rotation.z = sinOffsetRotationZ;
+    sparkMeshGroup.rotation.y = Math.PI + ((Math.PI / 5) * ( -(mouseX - (window.innerWidth / 2)) * .002)) + sinOffsetRotationY + gamma;
+    sparkMeshGroup.rotation.x = Math.PI + ((Math.PI / 5) * ( -(mouseY - (window.innerHeight / 2)) * .002)) + sinOffsetRotationX + scrollTransitionRotationX + beta;
+    sparkMeshGroup.rotation.z = sinOffsetRotationZ + alpha;
     sparkMeshGroup.position.y = sinOffsetPositionY;
     
-
-
-
 
     var delta = clock.getDelta();
   
@@ -360,3 +357,17 @@ $(document).ready(function(){
     });
   })
 });
+
+
+
+window.addEventListener('deviceorientation', handleOrientation);
+
+var alpha = 0;
+var beta = 0;
+var gamma = 0;
+
+function handleOrientation(event) {
+  alpha = event.alpha * (pi/180);
+  beta = event.beta * (pi/180);
+  gamma = event.gamma * (pi/180);
+}
